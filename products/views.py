@@ -9,7 +9,7 @@ from .serializers import CategorySerializer, ProductSerializer, ProductImageSeri
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.filters import SearchFilte
+from rest_framework.filters import SearchFilter
 def home(request):
     return HttpResponse("Welcome to the Ecommerce API! Available endpoints: /api/v1/category/, /api/v1/product/, /api/v1/cart/, /api/v1/order/")
 
@@ -58,7 +58,7 @@ class CategoryDetailAPIView(APIView):
 
 # Product API Views
 class ProductAPIView(APIView):
-    pagination_class = PageNumberPagination
+    pagination_class = PageNumberPagination 
     filter_backends = [DjangoFilterBackend, SearchFilter]
     filterset_fields = ['category']  # Lọc theo danh mục
     search_fields = ['name']  # Tìm kiếm theo tên
