@@ -1420,3 +1420,16 @@ INFO 2025-04-14 18:49:51,802 autoreload Watching for file changes with StatReloa
 INFO 2025-04-14 18:49:51,841 autoreload Watching for file changes with StatReloader
 INFO 2025-04-14 18:49:52,672 autoreload Watching for file changes with StatReloader
 INFO 2025-04-14 18:49:53,750 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 18:58:38,398 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 18:58:38,666 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 18:58:38,699 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 18:58:38,707 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 18:58:39,293 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 18:58:40,066 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 18:58:50,954 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 18:58:51,017 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 18:58:51,598 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 18:58:51,613 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 18:58:51,731 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 18:58:52,216 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 18:58:52,303 autoreload Watching for file changes with StatReloader

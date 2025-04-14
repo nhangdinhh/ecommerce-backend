@@ -390,8 +390,9 @@ def product_list(request):
     return render(request, 'product_list.html', {'products': products, 'categories': categories})
 
 @login_required
+# products/views.py
+
 def cart_view(request):
-    # Lấy giỏ hàng của user hiện tại
     cart, created = Cart.objects.get_or_create(user=request.user)
     cart_items = CartItem.objects.filter(cart=cart)
     cart_total = sum(item.get_total_price() for item in cart_items)
@@ -399,8 +400,6 @@ def cart_view(request):
     if request.method == 'POST':
         if 'cart_item_id' in request.POST:
             cart_item_id = request.POST.get('cart_item_id')
-
-            # Cập nhật số lượng
             if 'update_quantity' in request.POST:
                 quantity = int(request.POST.get('quantity', 1))
                 try:
@@ -410,8 +409,6 @@ def cart_view(request):
                     messages.success(request, f"Updated quantity for {cart_item.product.name}.")
                 except Exception as e:
                     messages.error(request, f"Error updating quantity: {str(e)}")
-
-            # Xóa sản phẩm khỏi giỏ hàng
             elif 'remove_item' in request.POST:
                 try:
                     cart_item = CartItem.objects.get(id=cart_item_id, cart=cart)
@@ -420,7 +417,6 @@ def cart_view(request):
                     messages.success(request, f"Removed {product_name} from cart.")
                 except Exception as e:
                     messages.error(request, f"Error removing item: {str(e)}")
-
             return redirect('cart_view')
 
     return render(request, 'cart.html', {
