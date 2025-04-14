@@ -343,10 +343,40 @@ def cart_view(request):
     if request.method == 'POST':
         product_id = request.POST.get('product_id')
         quantity = int(request.POST.get('quantity', 1))
-        product = Product.objects.get(id=product_id)
-        cart_item, created = CartItem.objects.get_or_create(cart=cart, product=product)
-        if not created:
-            cart_item.quantity += quantity
-            cart_item.save()
+        try:
+            product = Product.objects.get(id=product_id, deleted_at__isnull=True)
+            cart_item, created = CartItem.objects.get_or_create(cart=cart, product=product)
+            if not created:
+                cart_item.quantity += quantity
+                cart_item.save()
+            messages.success(request, 'Product added to cart successfully!')
+        except Product.DoesNotExist:
+            messages.error(request, 'Product not found.')
+        except Exception as e:
+            messages.error(request, f'Error adding product to cart: {str(e)}')
         return redirect('cart_view')
     return render(request, 'cart.html', {'cart': cart})
+
+@login_required
+def create_order(request):
+    cart = Cart.objects.get(user=request.user)
+    if not cart.items.all():
+        messages.error(request, "Your cart is empty.")
+        return redirect('cart_view')
+    
+    order = Order.objects.create(user=request.user)
+    for item in cart.items.all():
+        OrderItem.objects.create(
+            order=order,
+            product=item.product,
+            quantity=item.quantity,
+            price=item.product.price
+        )
+    cart.items.all().delete()
+    messages.success(request, "Order created successfully!")
+    return redirect('order_list')
+
+@login_required
+def order_list(request):
+    orders = Order.objects.filter(user=request.user)
+    return render(request, 'order_list.html', {'orders': orders})
