@@ -1,0 +1,517 @@
+INFO 2025-04-13 19:45:57,929 autoreload Watching for file changes with StatReloader
+INFO 2025-04-13 19:53:13,816 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-13 19:55:19,764 autoreload Watching for file changes with StatReloader
+INFO 2025-04-13 19:56:52,509 autoreload Watching for file changes with StatReloader
+INFO 2025-04-13 20:01:57,188 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-13 20:01:57,434 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-13 20:02:19,043 autoreload Watching for file changes with StatReloader
+INFO 2025-04-13 20:02:19,051 autoreload Watching for file changes with StatReloader
+INFO 2025-04-13 20:04:59,594 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-13 20:05:00,528 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-13 20:05:28,809 autoreload Watching for file changes with StatReloader
+INFO 2025-04-13 20:05:28,809 autoreload Watching for file changes with StatReloader
+INFO 2025-04-13 20:07:17,894 autoreload Watching for file changes with StatReloader
+INFO 2025-04-13 20:12:02,815 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-13 20:12:22,525 autoreload Watching for file changes with StatReloader
+INFO 2025-04-13 20:22:23,508 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-13 20:23:43,695 autoreload Watching for file changes with StatReloader
+INFO 2025-04-13 20:23:43,699 autoreload Watching for file changes with StatReloader
+INFO 2025-04-13 20:23:43,700 autoreload Watching for file changes with StatReloader
+INFO 2025-04-13 20:23:44,995 autoreload Watching for file changes with StatReloader
+INFO 2025-04-13 23:06:45,747 autoreload Watching for file changes with StatReloader
+INFO 2025-04-13 23:09:53,842 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-13 23:10:35,885 autoreload Watching for file changes with StatReloader
+ERROR 2025-04-13 23:11:12,807 log Internal Server Error: /api/v1/product/laptop/images/
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: ProductImageAPIView.post() got an unexpected keyword argument 'slug'
+INFO 2025-04-13 23:14:42,323 autoreload Watching for file changes with StatReloader
+INFO 2025-04-13 23:18:04,403 autoreload Watching for file changes with StatReloader
+ERROR 2025-04-13 23:18:26,400 log Internal Server Error: /api/v1/product/laptop/images/
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: ProductImageAPIView.post() got an unexpected keyword argument 'slug'
+INFO 2025-04-13 23:20:20,004 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-13 23:20:20,024 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-13 23:20:42,934 autoreload Watching for file changes with StatReloader
+INFO 2025-04-13 23:20:42,935 autoreload Watching for file changes with StatReloader
+ERROR 2025-04-13 23:21:16,995 log Internal Server Error: /api/v1/product/laptop/images/
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: ProductImageAPIView.post() got an unexpected keyword argument 'slug'
+INFO 2025-04-13 23:24:27,024 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-13 23:24:27,133 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-13 23:24:51,493 autoreload Watching for file changes with StatReloader
+INFO 2025-04-13 23:24:51,500 autoreload Watching for file changes with StatReloader
+INFO 2025-04-13 23:27:28,157 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-13 23:27:28,386 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-13 23:27:34,729 autoreload Watching for file changes with StatReloader
+INFO 2025-04-13 23:27:35,085 autoreload Watching for file changes with StatReloader
+INFO 2025-04-13 23:27:47,205 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-13 23:27:47,227 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-13 23:27:50,768 autoreload Watching for file changes with StatReloader
+INFO 2025-04-13 23:27:50,764 autoreload Watching for file changes with StatReloader
+INFO 2025-04-13 23:28:52,243 views Received request to upload image for product with slug: laptop
+INFO 2025-04-13 23:28:53,588 views Product found: Laptop (slug: laptop)
+INFO 2025-04-13 23:28:53,591 serializers Received data for ProductImageSerializer: <QueryDict: {'image': [<InMemoryUploadedFile: image1.jpg (image/jpeg)>]}>
+INFO 2025-04-13 23:28:54,511 views Serializer is valid, proceeding to save image
+INFO 2025-04-13 23:28:54,883 views Image saved successfully: {'id': 1, 'product': 1, 'image': '/media/product_images/image1.jpg'}
+INFO 2025-04-13 23:38:43,934 autoreload Watching for file changes with StatReloader
+INFO 2025-04-13 23:39:19,694 views Received request to upload image for product with slug: laptop
+INFO 2025-04-13 23:39:20,878 views Product found: Laptop (slug: laptop)
+INFO 2025-04-13 23:39:20,891 serializers Received data for ProductImageSerializer: <QueryDict: {'image': [<InMemoryUploadedFile: image1.jpg (image/jpeg)>]}>
+INFO 2025-04-13 23:39:21,366 views Serializer is valid, proceeding to save image
+INFO 2025-04-13 23:39:21,635 views Image saved successfully: {'id': 2, 'product': 1, 'image': '/product_images/image1.jpg', 'created_at': '2025-04-13T16:39:21.407881Z', 'updated_at': '2025-04-13T16:39:21.408850Z'}
+INFO 2025-04-13 23:41:26,367 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 00:02:36,530 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 00:03:59,514 views Received request to upload image for product with slug: laptop
+INFO 2025-04-14 00:04:00,853 views Product found: Laptop (slug: laptop)
+INFO 2025-04-14 00:04:00,864 serializers Received data for ProductImageSerializer: <QueryDict: {'image': [<InMemoryUploadedFile: image1.jpg (image/jpeg)>]}>
+INFO 2025-04-14 00:04:00,865 views Serializer is valid, proceeding to save image
+INFO 2025-04-14 00:04:05,145 views Image saved successfully: {'id': 3, 'product': 1, 'image': 'image/upload/v1744563843/p23zvtr0rxh1ttb8j8ca.jpg', 'created_at': '2025-04-13T17:04:04.735775Z', 'updated_at': '2025-04-13T17:04:04.735775Z'}
+INFO 2025-04-14 00:07:48,038 autoreload C:\django_projects\backend_ecommerce\products\serializers.py changed, reloading.
+INFO 2025-04-14 00:08:43,442 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 00:09:25,004 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 00:11:40,006 autoreload C:\django_projects\backend_ecommerce\products\serializers.py changed, reloading.
+INFO 2025-04-14 00:11:40,028 autoreload C:\django_projects\backend_ecommerce\products\serializers.py changed, reloading.
+INFO 2025-04-14 00:11:52,619 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 00:11:52,699 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 00:13:16,058 views Received request to upload image for product with slug: laptop
+INFO 2025-04-14 00:13:17,740 views Product found: Laptop (slug: laptop)
+INFO 2025-04-14 00:13:17,765 serializers Received data for ProductImageSerializer: <QueryDict: {'image': [<InMemoryUploadedFile: image1.jpg (image/jpeg)>]}>
+INFO 2025-04-14 00:13:17,782 views Serializer is valid, proceeding to save image
+ERROR 2025-04-14 00:13:18,040 views Unexpected error while uploading image: null value in column "image" of relation "products_productimage" violates not-null constraint
+DETAIL:  Failing row contains (4, 2025-04-13 17:13:17.784488+00, 2025-04-13 17:13:17.784488+00, null, 1, null).
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.NotNullViolation: null value in column "image" of relation "products_productimage" violates not-null constraint
+DETAIL:  Failing row contains (4, 2025-04-13 17:13:17.784488+00, 2025-04-13 17:13:17.784488+00, null, 1, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\products\views.py", line 136, in post
+    serializer.save(product=product)  # Gán product vào serializer
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\serializers.py", line 991, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\models\query.py", line 663, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\models\query.py", line 1854, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\models\sql\compiler.py", line 1881, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: null value in column "image" of relation "products_productimage" violates not-null constraint
+DETAIL:  Failing row contains (4, 2025-04-13 17:13:17.784488+00, 2025-04-13 17:13:17.784488+00, null, 1, null).
+
+ERROR 2025-04-14 00:13:22,299 log Internal Server Error: /api/v1/product/laptop/images/
+INFO 2025-04-14 00:13:57,877 autoreload C:\django_projects\backend_ecommerce\products\serializers.py changed, reloading.
+INFO 2025-04-14 00:13:57,896 autoreload C:\django_projects\backend_ecommerce\products\serializers.py changed, reloading.
+INFO 2025-04-14 00:14:14,000 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 00:14:14,000 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 00:15:19,239 autoreload C:\django_projects\backend_ecommerce\products\serializers.py changed, reloading.
+INFO 2025-04-14 00:15:19,335 autoreload C:\django_projects\backend_ecommerce\products\serializers.py changed, reloading.
+INFO 2025-04-14 00:15:23,241 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 00:15:23,242 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 00:15:49,715 views Received request to upload image for product with slug: laptop
+INFO 2025-04-14 00:15:50,827 views Product found: Laptop (slug: laptop)
+INFO 2025-04-14 00:15:50,849 serializers Received data for ProductImageSerializer: <QueryDict: {'image': [<InMemoryUploadedFile: image1.jpg (image/jpeg)>]}>
+INFO 2025-04-14 00:15:50,850 views Serializer is valid, proceeding to save image
+INFO 2025-04-14 00:15:54,579 views Image saved successfully: {'id': 5, 'product': 1, 'image': 'image/upload/v1744564552/a5gr5gfrnstnyftnyedw.jpg', 'created_at': '2025-04-13T17:15:54.352689Z', 'updated_at': '2025-04-13T17:15:54.352689Z'}
+WARNING 2025-04-14 00:20:00,548 log Forbidden (CSRF cookie not set.): /api/v1/products/
+WARNING 2025-04-14 00:20:17,015 log Forbidden (CSRF cookie not set.): /api/v1/products/
+WARNING 2025-04-14 00:20:20,860 log Forbidden (CSRF cookie not set.): /api/v1/products/
+WARNING 2025-04-14 00:20:24,413 log Forbidden (CSRF cookie not set.): /api/v1/products/
+WARNING 2025-04-14 00:25:39,222 log Forbidden (CSRF cookie not set.): /api/v1/products/
+WARNING 2025-04-14 00:35:07,791 log Not Found: /api/v1/product/{     "name": "Smartphone",     "unit": "pcs",     "price": 599.99,     "discount": 10,     "amount": 50,     "is_public": true,     "thumbnail": "thumbnail_url",     "category": 1,     "slug": "smartphone" }/images/
+INFO 2025-04-14 00:37:58,953 views Received request to upload image for product with slug: laptop
+INFO 2025-04-14 00:37:59,147 views Product found: Laptop (slug: laptop)
+INFO 2025-04-14 00:37:59,292 serializers Received data for ProductImageSerializer: {}
+INFO 2025-04-14 00:37:59,348 views Serializer is valid, proceeding to save image
+ERROR 2025-04-14 00:37:59,624 views Unexpected error while uploading image: null value in column "image" of relation "products_productimage" violates not-null constraint
+DETAIL:  Failing row contains (6, 2025-04-13 17:37:59.350942+00, 2025-04-13 17:37:59.350942+00, null, 1, null).
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.NotNullViolation: null value in column "image" of relation "products_productimage" violates not-null constraint
+DETAIL:  Failing row contains (6, 2025-04-13 17:37:59.350942+00, 2025-04-13 17:37:59.350942+00, null, 1, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\products\views.py", line 136, in post
+    serializer.save(product=product)  # Gán product vào serializer
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\serializers.py", line 991, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\models\query.py", line 663, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\models\query.py", line 1854, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\models\sql\compiler.py", line 1881, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: null value in column "image" of relation "products_productimage" violates not-null constraint
+DETAIL:  Failing row contains (6, 2025-04-13 17:37:59.350942+00, 2025-04-13 17:37:59.350942+00, null, 1, null).
+
+ERROR 2025-04-14 00:37:59,883 log Internal Server Error: /api/v1/product/laptop/images/
+INFO 2025-04-14 00:42:31,610 views Received request to upload image for product with slug: laptop
+INFO 2025-04-14 00:42:33,017 views Product found: Laptop (slug: laptop)
+INFO 2025-04-14 00:42:33,261 serializers Received data for ProductImageSerializer: <QueryDict: {'image': [<InMemoryUploadedFile: image1.jpg (image/jpeg)>]}>
+INFO 2025-04-14 00:42:33,290 views Serializer is valid, proceeding to save image
+INFO 2025-04-14 00:42:37,422 views Image saved successfully: {'id': 7, 'product': 1, 'image': 'image/upload/v1744566155/u6of63atszsxjtyomata.jpg', 'created_at': '2025-04-13T17:42:37.215788Z', 'updated_at': '2025-04-13T17:42:37.215788Z'}
+WARNING 2025-04-14 00:44:20,495 log Forbidden (CSRF cookie not set.): /api/v1/products/
+WARNING 2025-04-14 00:44:40,230 log Forbidden (CSRF cookie not set.): /api/v1/products/
+WARNING 2025-04-14 00:44:43,681 log Forbidden (CSRF cookie not set.): /api/v1/products/
+INFO 2025-04-14 13:14:37,368 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 13:16:55,172 autoreload Watching for file changes with StatReloader
+WARNING 2025-04-14 13:17:33,067 log Not Found: /favicon.ico
+WARNING 2025-04-14 13:18:15,194 log Forbidden (CSRF cookie not set.): /api/v1/products/
+INFO 2025-04-14 13:20:30,705 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-14 13:20:45,193 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 13:22:35,875 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 13:22:38,526 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 13:22:50,738 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 13:22:53,978 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 13:24:28,511 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 13:24:31,146 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 13:24:56,454 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\urls.py changed, reloading.
+INFO 2025-04-14 13:24:58,504 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 13:25:05,842 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\urls.py changed, reloading.
+INFO 2025-04-14 13:25:08,070 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 13:25:29,997 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-14 13:25:32,300 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 13:25:48,271 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-14 13:25:49,991 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 13:25:54,461 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-14 13:25:56,835 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 13:26:02,359 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-14 13:26:04,447 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 13:26:11,942 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 13:28:39,103 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 13:28:39,206 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 13:28:44,121 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 13:28:46,143 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 13:29:13,352 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 13:29:13,370 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 13:29:16,615 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 13:29:16,616 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 13:32:09,874 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 13:33:54,412 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 13:33:54,421 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 13:33:54,471 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 13:33:58,107 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 13:33:58,114 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 13:33:58,206 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 13:35:28,511 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 13:35:28,671 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 13:35:29,321 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 13:35:32,978 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 13:35:33,027 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 13:35:33,143 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 13:51:00,648 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 13:51:00,623 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 13:51:00,886 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 13:51:03,689 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 13:51:03,701 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 13:51:03,821 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 13:51:23,342 autoreload Watching for file changes with StatReloader
+WARNING 2025-04-14 13:57:51,634 log Bad Request: /api/v1/category/
+WARNING 2025-04-14 13:58:06,964 log Bad Request: /api/v1/category/
+WARNING 2025-04-14 13:59:24,762 log Bad Request: /api/v1/category/
+WARNING 2025-04-14 13:59:39,247 log Bad Request: /api/v1/category/
+WARNING 2025-04-14 13:59:56,217 log Bad Request: /api/v1/category/
+WARNING 2025-04-14 14:00:36,016 log Not Found: /api/v1/category
+WARNING 2025-04-14 14:00:43,483 log Not Found: /api/v1/category
+WARNING 2025-04-14 14:00:49,454 log Bad Request: /api/v1/category/
+WARNING 2025-04-14 14:00:51,840 log Not Found: /api/v1/category
+WARNING 2025-04-14 14:01:08,828 log Bad Request: /api/v1/order/
+WARNING 2025-04-14 14:01:13,991 log Not Found: /api/v1/product/
+INFO 2025-04-14 14:01:20,802 views Received request to upload image for product with slug: laptop
+INFO 2025-04-14 14:01:21,162 views Product found: Laptop (slug: laptop)
+INFO 2025-04-14 14:01:21,253 serializers Received data for ProductImageSerializer: <QueryDict: {'image': [<InMemoryUploadedFile: image1.jpg (image/jpeg)>]}>
+INFO 2025-04-14 14:01:21,254 views Serializer is valid, proceeding to save image
+INFO 2025-04-14 14:01:24,413 views Image saved successfully: {'id': 8, 'product': 1, 'image': 'image/upload/v1744614083/srzj6uj2rujq5sr6doep.jpg', 'created_at': '2025-04-14T07:01:24.238812Z', 'updated_at': '2025-04-14T07:01:24.238812Z'}
+WARNING 2025-04-14 14:01:28,537 log Bad Request: /api/v1/products/
+WARNING 2025-04-14 14:10:26,841 log Bad Request: /api/v1/category/
+WARNING 2025-04-14 14:11:19,358 log Bad Request: /api/v1/category/
+WARNING 2025-04-14 14:13:27,479 log Bad Request: /api/v1/category/
+WARNING 2025-04-14 14:15:02,764 log Bad Request: /api/v1/product/smartphone/comments/
+WARNING 2025-04-14 14:15:33,307 log Bad Request: /api/v1/product/smartphone/comments/
+INFO 2025-04-14 14:17:05,401 autoreload C:\django_projects\backend_ecommerce\products\serializers.py changed, reloading.
+INFO 2025-04-14 14:17:08,658 autoreload C:\django_projects\backend_ecommerce\products\serializers.py changed, reloading.
+INFO 2025-04-14 14:17:09,098 autoreload C:\django_projects\backend_ecommerce\products\serializers.py changed, reloading.
+INFO 2025-04-14 14:17:09,025 autoreload C:\django_projects\backend_ecommerce\products\serializers.py changed, reloading.
+INFO 2025-04-14 14:17:55,416 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 14:17:55,416 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 14:17:55,416 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 14:18:00,806 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 14:18:39,641 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 14:18:39,774 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 14:18:39,754 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 14:18:39,955 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 14:18:46,224 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 14:18:46,272 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 14:18:46,256 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 14:18:46,728 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 14:23:17,690 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 14:23:18,014 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 14:23:18,196 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 14:23:18,204 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 14:23:28,367 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 14:23:28,373 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 14:23:28,394 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 14:23:29,116 autoreload Watching for file changes with StatReloader
+ERROR 2025-04-14 14:26:58,392 log Internal Server Error: /api/v1/product/smartphone/comments/
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.NotNullViolation: null value in column "user_id" of relation "products_productcomment" violates not-null constraint
+DETAIL:  Failing row contains (1, 5, Great product!, 2025-04-14 07:26:44.362097+00, 2025-04-14 07:26:44.362097+00, null, null, 4, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\products\views.py", line 155, in post
+    serializer.save(product=product)
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\serializers.py", line 210, in save
+    self.instance = self.create(validated_data)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\serializers.py", line 991, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\models\query.py", line 663, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\models\query.py", line 1854, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\models\sql\compiler.py", line 1881, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: null value in column "user_id" of relation "products_productcomment" violates not-null constraint
+DETAIL:  Failing row contains (1, 5, Great product!, 2025-04-14 07:26:44.362097+00, 2025-04-14 07:26:44.362097+00, null, null, 4, null).
+
+INFO 2025-04-14 14:37:43,869 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 14:37:57,826 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 14:38:21,383 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 14:38:24,855 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 14:39:13,738 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-14 14:39:15,737 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 14:40:15,211 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\urls.py changed, reloading.
+INFO 2025-04-14 14:40:17,681 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 14:40:30,039 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 14:41:42,724 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\urls.py changed, reloading.
+INFO 2025-04-14 14:41:42,735 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\urls.py changed, reloading.
+INFO 2025-04-14 14:41:45,394 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 14:41:45,771 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 14:43:25,655 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 14:43:25,659 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 14:43:28,937 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 14:43:28,940 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 14:47:30,765 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 14:47:30,811 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 14:47:33,670 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 14:47:33,690 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 14:47:43,343 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 14:47:43,554 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 14:47:45,721 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 14:47:45,825 autoreload Watching for file changes with StatReloader

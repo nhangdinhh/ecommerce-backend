@@ -1,16 +1,28 @@
 from rest_framework import serializers
 from .models import Category, Product, ProductImage, ProductComment, Cart, CartItem, Order, OrderItem
-
+import logging
 
 class ProductImageSerializer(serializers.ModelSerializer):
+    def to_internal_value(self, data):
+        logger = logging.getLogger(__name__)
+        logger.info(f"Received data for ProductImageSerializer: {data}")
+        return super().to_internal_value(data)
+
     class Meta:
         model = ProductImage
-        fields = ['id', 'image', 'created_at', 'updated_at', 'deleted_at', 'product']
-
+        fields = ['id', 'product', 'image', 'created_at', 'updated_at']
+        read_only_fields = ['id', 'created_at', 'updated_at']
+        extra_kwargs = {
+            'product': {'required': False}  # Không yêu cầu product trong dữ liệu gửi lên
+        }
 class ProductCommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductComment
-        fields = '__all__'
+        fields = ['id', 'rating', 'comment', 'product', 'user', 'created_at', 'updated_at', 'deleted_at']
+        extra_kwargs = {
+            'product': {'required': False},  # Không bắt buộc trong request
+            'user': {'required': False}      # Không bắt buộc trong request
+        }
 
 class ProductSerializer(serializers.ModelSerializer):
     images = ProductImageSerializer(many=True, read_only=True)

@@ -1,0 +1,41 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce - {% block title %}{% endblock %}</title>
+    <!-- Thêm CSS nếu cần -->
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .error { color: red; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; }
+        input, select { padding: 5px; width: 200px; }
+        button { padding: 5px 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ecommerce Site</h1>
+        <nav>
+    <a href="{% url 'home' %}">Home</a> |
+    <a href="{% url 'category_list' %}">Categories</a> |
+    <a href="{% url 'product_list' %}">Products</a> |
+    {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+        <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+</nav>
+        {% if messages %}
+            {% for message in messages %}
+                <p class="error">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

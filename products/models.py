@@ -1,6 +1,8 @@
 from django.db import models
 from django.conf import settings
 from django.utils import timezone
+from cloudinary.models import CloudinaryField  # Đảm bảo import này đúng
+
 class Category(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, unique=True)
@@ -32,15 +34,14 @@ class Product(models.Model):
         ordering = ['-created_at']
 
 class ProductImage(models.Model):
-    product = models.ForeignKey('Product', on_delete=models.CASCADE, related_name='images')
-    image = models.ImageField(upload_to='product_images/', null=True, blank=True)  # Thêm null=True, blank=True
+    product = models.ForeignKey(Product, related_name='images', on_delete=models.CASCADE)
+    image = CloudinaryField('image', null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     deleted_at = models.DateTimeField(null=True, blank=True)
 
-    def delete(self, *args, **kwargs):
-        self.deleted_at = timezone.now()
-        self.save()
+    def __str__(self):
+        return f"Image for {self.product.name}"
 
 class ProductComment(models.Model):
     rating = models.IntegerField()
