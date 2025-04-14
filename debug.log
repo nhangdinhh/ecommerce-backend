@@ -515,3 +515,29 @@ INFO 2025-04-14 14:47:43,343 autoreload C:\django_projects\backend_ecommerce\bac
 INFO 2025-04-14 14:47:43,554 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
 INFO 2025-04-14 14:47:45,721 autoreload Watching for file changes with StatReloader
 INFO 2025-04-14 14:47:45,825 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 14:53:37,513 autoreload Watching for file changes with StatReloader
+WARNING 2025-04-14 14:53:52,399 base Method Not Allowed (GET): /accounts/logout/
+WARNING 2025-04-14 14:53:52,401 log Method Not Allowed: /accounts/logout/
+INFO 2025-04-14 14:58:05,305 autoreload C:\django_projects\backend_ecommerce\products\models.py changed, reloading.
+INFO 2025-04-14 14:58:05,293 autoreload C:\django_projects\backend_ecommerce\products\models.py changed, reloading.
+INFO 2025-04-14 14:58:05,368 autoreload C:\django_projects\backend_ecommerce\products\models.py changed, reloading.
+INFO 2025-04-14 14:58:18,942 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 14:58:19,965 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 14:59:49,553 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 14:59:49,616 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 14:59:52,488 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 14:59:52,504 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:01:27,628 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-14 15:01:27,650 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-14 15:01:31,238 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:01:31,246 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:04:09,568 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-14 15:04:09,763 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-14 15:04:13,144 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:04:13,176 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:04:40,239 autoreload C:\django_projects\backend_ecommerce\products\models.py changed, reloading.
+INFO 2025-04-14 15:04:40,297 autoreload C:\django_projects\backend_ecommerce\products\models.py changed, reloading.
+INFO 2025-04-14 15:04:42,626 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:04:42,637 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:08:04,200 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-14 15:08:04,240 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.

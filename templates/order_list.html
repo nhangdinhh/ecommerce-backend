@@ -1,0 +1,21 @@
+<!-- templates/order_list.html -->
+{% extends 'base.html' %}
+{% block title %}Orders{% endblock %}
+{% block content %}
+<h2>Your Orders</h2>
+{% if orders %}
+    <ul>
+        {% for order in orders %}
+            <li>Order #{{ order.id }} - Status: {{ order.status }}
+                <ul>
+                    {% for item in order.items.all %}
+                        <li>{{ item.product.name }} - Quantity: {{ item.quantity }} - Price: ${{ item.price }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>You have no orders.</p>
+{% endif %}
+{% endblock %}

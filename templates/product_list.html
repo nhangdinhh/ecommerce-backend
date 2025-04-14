@@ -5,7 +5,15 @@
 <h2>Products</h2>
 <ul>
     {% for product in products %}
-        <li>{{ product.name }} - ${{ product.price }} - Category: {{ product.category.name }}</li>
+        <li>
+            {{ product.name }} - ${{ product.price }} - Category: {{ product.category.name }}
+            <form method="POST" action="{% url 'cart_view' %}" style="display:inline;">
+                {% csrf_token %}
+                <input type="hidden" name="product_id" value="{{ product.id }}">
+                <input type="number" name="quantity" value="1" min="1" style="width: 50px;">
+                <button type="submit">Add to Cart</button>
+            </form>
+        </li>
     {% empty %}
         <li>No products available.</li>
     {% endfor %}

@@ -15,8 +15,9 @@ import logging
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .models import Category, Product
+from .models import Category, Product, Cart, CartItem
 from django.contrib.auth.decorators import login_required
+
 
 def home(request):
     return HttpResponse("Welcome to the Ecommerce API! Available endpoints: /api/v1/category/, /api/v1/product/, /api/v1/cart/, /api/v1/order/")
@@ -335,3 +336,17 @@ def product_list(request):
         except Exception as e:
             messages.error(request, f'Error creating product: {str(e)}')
     return render(request, 'product_list.html', {'products': products, 'categories': categories})
+
+@login_required
+def cart_view(request):
+    cart, created = Cart.objects.get_or_create(user=request.user)
+    if request.method == 'POST':
+        product_id = request.POST.get('product_id')
+        quantity = int(request.POST.get('quantity', 1))
+        product = Product.objects.get(id=product_id)
+        cart_item, created = CartItem.objects.get_or_create(cart=cart, product=product)
+        if not created:
+            cart_item.quantity += quantity
+            cart_item.save()
+        return redirect('cart_view')
+    return render(request, 'cart.html', {'cart': cart})

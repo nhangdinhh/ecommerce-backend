@@ -1,0 +1,26 @@
+/* static/css/styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.error {
+    color: red;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+input, select {
+    padding: 5px;
+    width: 200px;
+}
+button {
+    padding: 5px 10px;
+}
