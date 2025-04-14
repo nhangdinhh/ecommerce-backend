@@ -8,6 +8,7 @@ from upload import views  # Import views từ app upload
 from products.views import home  # Import view mới
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth import views as auth_views
 schema_view = get_schema_view(
     openapi.Info(
         title="Ecommerce API",
@@ -26,4 +27,7 @@ urlpatterns = [
     path('api/v1/product/<slug:slug>/images/', ProductImageAPIView.as_view(), name='product-images'),
     path('api/get-csrf-token/', get_csrf_token, name='get-csrf-token'),  # Thêm endpoint
     path('accounts/', include('django.contrib.auth.urls')),  # Thêm URL cho đăng nhập/đăng xuất
+    path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(template_name='logout.html'), name='logout'),
+    
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

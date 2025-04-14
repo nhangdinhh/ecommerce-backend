@@ -568,3 +568,787 @@ Traceback (most recent call last):
   File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader.py", line 19, in get_template
     raise TemplateDoesNotExist(template_name, chain=chain)
 django.template.exceptions.TemplateDoesNotExist: rest_framework/api.html
+INFO 2025-04-14 15:33:23,877 autoreload Watching for file changes with StatReloader
+ERROR 2025-04-14 15:33:31,717 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\products\views.py", line 290, in home
+    return render(request, 'home.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader_tags.py", line 134, in render
+    compiled_parent = self.get_parent(context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader_tags.py", line 131, in get_parent
+    return self.find_template(parent, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader_tags.py", line 109, in find_template
+    template, origin = context.template.engine.find_template(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 577, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 9: 'static'. Did you forget to register or load this tag?
+INFO 2025-04-14 15:35:25,404 autoreload Watching for file changes with StatReloader
+WARNING 2025-04-14 15:35:45,110 base Method Not Allowed (GET): /accounts/logout/
+WARNING 2025-04-14 15:35:45,112 log Method Not Allowed: /accounts/logout/
+ERROR 2025-04-14 15:35:55,779 log Internal Server Error: /api/v1/
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\renderers.py", line 730, in render
+    template = loader.get_template(self.template)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: rest_framework/api.html
+ERROR 2025-04-14 15:36:00,289 log Internal Server Error: /api/v1/
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\renderers.py", line 730, in render
+    template = loader.get_template(self.template)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: rest_framework/api.html
+INFO 2025-04-14 15:40:09,543 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 15:40:10,242 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 15:40:10,320 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 15:40:10,974 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 15:40:11,187 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 15:40:24,682 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:40:24,681 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:40:25,768 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:40:26,137 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:40:27,078 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:42:30,529 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 15:42:30,640 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 15:42:30,701 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 15:42:30,708 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 15:42:30,741 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 15:42:35,564 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:42:35,624 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:42:35,656 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:42:35,671 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:42:35,766 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:44:42,536 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 15:44:42,569 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 15:44:42,832 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 15:44:42,805 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 15:44:42,854 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 15:44:48,656 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:44:48,680 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:44:48,824 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:44:48,945 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:44:51,116 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:45:11,962 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-14 15:45:12,087 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-14 15:45:12,188 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-14 15:45:12,690 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-14 15:45:12,772 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-14 15:45:18,945 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:45:18,982 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:45:19,205 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:45:19,196 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:45:20,275 autoreload Watching for file changes with StatReloader
+ERROR 2025-04-14 15:46:15,346 log Internal Server Error: /api/v1/cart/
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader_tags.py", line 134, in render
+    compiled_parent = self.get_parent(context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader_tags.py", line 131, in get_parent
+    return self.find_template(parent, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader_tags.py", line 109, in find_template
+    template, origin = context.template.engine.find_template(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\engine.py", line 163, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: rest_framework/base.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\renderers.py", line 732, in render
+    ret = template.render(context, request=renderer_context['request'])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\backends\django.py", line 109, in render
+    reraise(exc, self.backend)
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\backends\django.py", line 130, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: rest_framework/base.html
+ERROR 2025-04-14 15:46:24,089 log Internal Server Error: /api/v1/
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader_tags.py", line 134, in render
+    compiled_parent = self.get_parent(context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader_tags.py", line 131, in get_parent
+    return self.find_template(parent, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader_tags.py", line 109, in find_template
+    template, origin = context.template.engine.find_template(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\engine.py", line 163, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: rest_framework/base.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\renderers.py", line 732, in render
+    ret = template.render(context, request=renderer_context['request'])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\backends\django.py", line 109, in render
+    reraise(exc, self.backend)
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\backends\django.py", line 130, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: rest_framework/base.html
+ERROR 2025-04-14 15:46:31,131 log Internal Server Error: /api/v1/
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader_tags.py", line 134, in render
+    compiled_parent = self.get_parent(context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader_tags.py", line 131, in get_parent
+    return self.find_template(parent, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader_tags.py", line 109, in find_template
+    template, origin = context.template.engine.find_template(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\engine.py", line 163, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: rest_framework/base.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\renderers.py", line 732, in render
+    ret = template.render(context, request=renderer_context['request'])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\backends\django.py", line 109, in render
+    reraise(exc, self.backend)
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\backends\django.py", line 130, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: rest_framework/base.html
+ERROR 2025-04-14 15:47:14,778 log Internal Server Error: /api/v1/cart/
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader_tags.py", line 134, in render
+    compiled_parent = self.get_parent(context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader_tags.py", line 131, in get_parent
+    return self.find_template(parent, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader_tags.py", line 109, in find_template
+    template, origin = context.template.engine.find_template(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\engine.py", line 163, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: rest_framework/base.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\renderers.py", line 732, in render
+    ret = template.render(context, request=renderer_context['request'])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\backends\django.py", line 109, in render
+    reraise(exc, self.backend)
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\backends\django.py", line 130, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: rest_framework/base.html
+ERROR 2025-04-14 15:47:21,966 log Internal Server Error: /api/v1/
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader_tags.py", line 134, in render
+    compiled_parent = self.get_parent(context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader_tags.py", line 131, in get_parent
+    return self.find_template(parent, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader_tags.py", line 109, in find_template
+    template, origin = context.template.engine.find_template(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\engine.py", line 163, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: rest_framework/base.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\renderers.py", line 732, in render
+    ret = template.render(context, request=renderer_context['request'])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\backends\django.py", line 109, in render
+    reraise(exc, self.backend)
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\backends\django.py", line 130, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: rest_framework/base.html
+INFO 2025-04-14 15:54:08,500 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-14 15:54:08,268 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-14 15:54:08,794 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-14 15:54:08,390 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-14 15:54:08,958 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-14 15:54:22,965 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:54:22,975 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:54:23,036 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:54:22,975 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:54:23,478 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:54:35,847 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 15:54:36,071 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 15:54:36,103 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 15:54:36,250 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 15:54:36,315 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 15:54:41,550 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:54:41,585 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:54:41,710 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:54:41,748 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:54:41,764 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:54:53,073 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 15:54:53,135 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 15:54:53,233 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 15:54:53,251 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 15:54:53,838 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 15:54:57,274 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:54:57,346 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:54:57,388 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:54:57,516 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 15:54:57,506 autoreload Watching for file changes with StatReloader
+ERROR 2025-04-14 15:55:21,964 log Internal Server Error: /api/v1/
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader_tags.py", line 134, in render
+    compiled_parent = self.get_parent(context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader_tags.py", line 131, in get_parent
+    return self.find_template(parent, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader_tags.py", line 109, in find_template
+    template, origin = context.template.engine.find_template(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\engine.py", line 163, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: rest_framework/base.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\renderers.py", line 732, in render
+    ret = template.render(context, request=renderer_context['request'])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\backends\django.py", line 109, in render
+    reraise(exc, self.backend)
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\backends\django.py", line 130, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: rest_framework/base.html
+WARNING 2025-04-14 15:55:42,741 base Method Not Allowed (GET): /accounts/logout/
+WARNING 2025-04-14 15:55:42,743 log Method Not Allowed: /accounts/logout/
+ERROR 2025-04-14 15:55:52,143 log Internal Server Error: /api/v1/
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader_tags.py", line 134, in render
+    compiled_parent = self.get_parent(context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader_tags.py", line 131, in get_parent
+    return self.find_template(parent, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader_tags.py", line 109, in find_template
+    template, origin = context.template.engine.find_template(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\engine.py", line 163, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: rest_framework/base.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\renderers.py", line 732, in render
+    ret = template.render(context, request=renderer_context['request'])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\backends\django.py", line 109, in render
+    reraise(exc, self.backend)
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\backends\django.py", line 130, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: rest_framework/base.html
+ERROR 2025-04-14 15:55:54,987 log Internal Server Error: /api/v1/
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader_tags.py", line 134, in render
+    compiled_parent = self.get_parent(context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader_tags.py", line 131, in get_parent
+    return self.find_template(parent, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader_tags.py", line 109, in find_template
+    template, origin = context.template.engine.find_template(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\engine.py", line 163, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: rest_framework/base.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\rest_framework\renderers.py", line 732, in render
+    ret = template.render(context, request=renderer_context['request'])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\backends\django.py", line 109, in render
+    reraise(exc, self.backend)
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\backends\django.py", line 130, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: rest_framework/base.html
+INFO 2025-04-14 16:03:08,180 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 16:03:08,475 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 16:03:08,607 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 16:03:08,656 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 16:03:08,962 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 16:03:20,649 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:03:20,654 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:03:20,658 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:03:20,660 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:03:20,668 autoreload Watching for file changes with StatReloader
+WARNING 2025-04-14 16:03:39,157 base Method Not Allowed (GET): /accounts/logout/
+WARNING 2025-04-14 16:03:39,236 log Method Not Allowed: /accounts/logout/
+INFO 2025-04-14 16:17:14,997 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 16:17:15,638 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 16:17:15,409 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 16:17:15,815 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 16:17:15,866 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 16:17:42,519 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:17:42,564 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:17:42,812 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:17:43,837 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:17:45,046 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:20:28,925 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\urls.py changed, reloading.
+INFO 2025-04-14 16:20:28,968 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\urls.py changed, reloading.
+INFO 2025-04-14 16:20:29,023 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\urls.py changed, reloading.
+INFO 2025-04-14 16:20:29,005 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\urls.py changed, reloading.
+INFO 2025-04-14 16:20:29,153 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\urls.py changed, reloading.
+INFO 2025-04-14 16:20:35,784 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:20:35,836 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:20:35,845 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:20:35,873 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:20:36,115 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:21:29,678 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\urls.py changed, reloading.
+INFO 2025-04-14 16:21:29,769 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\urls.py changed, reloading.
+INFO 2025-04-14 16:21:30,145 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\urls.py changed, reloading.
+INFO 2025-04-14 16:21:30,128 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\urls.py changed, reloading.
+INFO 2025-04-14 16:21:30,171 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\urls.py changed, reloading.
+INFO 2025-04-14 16:21:35,077 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:21:35,151 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:21:35,169 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:21:35,189 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:21:35,236 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:28:13,686 autoreload Watching for file changes with StatReloader
+WARNING 2025-04-14 16:28:26,511 base Method Not Allowed (GET): /logout/
+WARNING 2025-04-14 16:28:26,512 log Method Not Allowed: /logout/
+INFO 2025-04-14 16:31:42,969 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-14 16:31:43,012 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-14 16:31:42,979 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-14 16:31:43,129 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-14 16:31:43,153 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-14 16:31:44,009 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-14 16:31:48,285 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:31:48,371 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:31:48,413 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:31:48,880 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:31:49,148 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:31:49,350 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:34:08,358 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 16:34:08,504 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 16:34:08,505 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 16:34:08,808 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 16:34:09,046 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 16:34:09,659 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 16:34:15,399 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:34:15,445 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:34:15,500 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:34:15,547 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:34:15,597 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:34:15,641 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:34:36,666 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 16:34:36,665 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 16:34:36,667 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 16:34:36,717 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 16:34:36,894 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 16:34:37,481 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 16:34:45,980 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:34:46,034 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:34:46,055 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:34:46,062 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:34:46,071 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:34:46,111 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:41:21,304 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 16:41:21,361 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 16:41:21,370 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 16:41:21,345 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 16:41:21,405 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 16:41:21,537 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 16:41:42,673 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:41:42,802 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:41:42,906 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:41:43,109 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:41:43,345 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:41:46,787 autoreload Watching for file changes with StatReloader
+WARNING 2025-04-14 16:46:32,227 log Not Found: /api/v1/products/path/to/tshirt.jpg
+WARNING 2025-04-14 16:46:32,259 log Not Found: /api/v1/products/path/to/laptop.jpg
+WARNING 2025-04-14 16:46:32,273 log Not Found: /api/v1/products/1
+WARNING 2025-04-14 16:46:32,296 log Not Found: /api/v1/products/thumbnail_url
+WARNING 2025-04-14 16:46:47,162 log Not Found: /api/v1/products/thumbnail_url
+WARNING 2025-04-14 16:46:47,174 log Not Found: /api/v1/products/1
+WARNING 2025-04-14 16:46:47,203 log Not Found: /api/v1/products/path/to/tshirt.jpg
+WARNING 2025-04-14 16:46:47,223 log Not Found: /api/v1/products/path/to/laptop.jpg
+WARNING 2025-04-14 16:46:50,955 log Bad Request: /api/v1/cart/
+WARNING 2025-04-14 16:46:56,903 base Method Not Allowed (GET): /logout/
+WARNING 2025-04-14 16:46:56,905 log Method Not Allowed: /logout/
+INFO 2025-04-14 16:49:40,952 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-14 16:49:41,615 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-14 16:49:41,735 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-14 16:49:41,652 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-14 16:49:41,947 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-14 16:49:41,957 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-14 16:49:56,645 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:49:56,758 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:49:56,782 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:49:56,784 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:49:56,756 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:49:57,157 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:51:44,548 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 16:51:44,460 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 16:51:44,606 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 16:51:44,683 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 16:51:44,764 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 16:51:44,716 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 16:51:53,211 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:51:53,249 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:51:53,265 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:51:53,384 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:51:53,386 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:51:53,794 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:54:42,886 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 16:54:43,033 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 16:54:43,078 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 16:54:43,278 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 16:54:43,330 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-14 16:54:53,662 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:54:53,674 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:54:53,769 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:54:53,802 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:54:53,926 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:54:54,021 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:55:56,000 autoreload C:\django_projects\backend_ecommerce\products\models.py changed, reloading.
+INFO 2025-04-14 16:55:56,006 autoreload C:\django_projects\backend_ecommerce\products\models.py changed, reloading.
+INFO 2025-04-14 16:55:56,006 autoreload C:\django_projects\backend_ecommerce\products\models.py changed, reloading.
+INFO 2025-04-14 16:56:10,442 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:56:10,442 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:56:10,443 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:56:10,443 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:56:10,452 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 16:56:10,452 autoreload Watching for file changes with StatReloader

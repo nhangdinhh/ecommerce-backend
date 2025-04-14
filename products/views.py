@@ -15,9 +15,39 @@ import logging
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .models import Category, Product, Cart, CartItem
+from .models import Category, Product, Cart, CartItem, Order
 from django.contrib.auth.decorators import login_required
+from rest_framework.decorators import api_view
 
+class CategoryViewSet(viewsets.ModelViewSet):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+
+class CartViewSet(viewsets.ModelViewSet):
+    queryset = Cart.objects.all()
+    serializer_class = CartSerializer
+    # Thêm logic để chỉ hiển thị giỏ hàng của user hiện tại
+    def get_queryset(self):
+        return Cart.objects.filter(user=self.request.user)
+
+class OrderViewSet(viewsets.ModelViewSet):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+    def get_queryset(self):
+        return Order.objects.filter(user=self.request.user)
+class ProductViewSet(viewsets.ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
+    
+@api_view(['GET'])
+def custom_api_root(request, format=None):
+    return Response({
+        'category': request.build_absolute_uri('category/'),
+        'product': request.build_absolute_uri('product/'),
+        'cart': request.build_absolute_uri('cart/'),
+        'order': request.build_absolute_uri('order/'),
+    })
 
 def home(request):
     return HttpResponse("Welcome to the Ecommerce API! Available endpoints: /api/v1/category/, /api/v1/product/, /api/v1/cart/, /api/v1/order/")
@@ -278,9 +308,7 @@ class OrderAPIView(APIView):
         serializer = OrderSerializer(orders, many=True)
         return Response(serializer.data)
 
-class ProductViewSet(viewsets.ModelViewSet):
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
+
 
 @ensure_csrf_cookie
 def get_csrf_token(request):
@@ -306,56 +334,99 @@ def category_list(request):
 # Danh sách sản phẩm và tạo sản phẩm
 @login_required
 def product_list(request):
-    products = Product.objects.filter(deleted_at__isnull=True)
-    categories = Category.objects.filter(deleted_at__isnull=True)
+    products = Product.objects.all()
+    categories = Category.objects.all()
+
     if request.method == 'POST':
-        name = request.POST.get('name')
-        unit = request.POST.get('unit')
-        price = request.POST.get('price')
-        discount = request.POST.get('discount', 0)
-        amount = request.POST.get('amount')
-        is_public = request.POST.get('is_public') == 'true'
-        thumbnail = request.POST.get('thumbnail')
-        category_id = request.POST.get('category')
-        slug = request.POST.get('slug')
-        try:
-            category = Category.objects.get(id=category_id)
-            Product.objects.create(
-                name=name,
-                unit=unit,
-                price=price,
-                discount=discount,
-                amount=amount,
-                is_public=is_public,
-                thumbnail=thumbnail,
-                category=category,
-                slug=slug
-            )
-            messages.success(request, 'Product created successfully!')
+        # Xử lý tạo sản phẩm mới
+        if 'name' in request.POST:
+            name = request.POST.get('name')
+            unit = request.POST.get('unit')
+            price = request.POST.get('price')
+            discount = request.POST.get('discount', 0)
+            amount = request.POST.get('amount')
+            is_public = request.POST.get('is_public') == 'true'
+            thumbnail = request.POST.get('thumbnail')
+            category_id = request.POST.get('category')
+            slug = request.POST.get('slug')
+
+            try:
+                category = Category.objects.get(id=category_id)
+                Product.objects.create(
+                    name=name,
+                    unit=unit,
+                    price=price,
+                    discount=discount,
+                    amount=amount,
+                    is_public=is_public,
+                    thumbnail=thumbnail,
+                    category=category,
+                    slug=slug
+                )
+                messages.success(request, f"Product '{name}' created successfully!")
+            except Exception as e:
+                messages.error(request, f"Error creating product: {str(e)}")
             return redirect('product_list')
-        except Exception as e:
-            messages.error(request, f'Error creating product: {str(e)}')
+
+        # Xử lý thêm vào giỏ hàng
+        elif 'product_id' in request.POST:
+            product_id = request.POST.get('product_id')
+            quantity = int(request.POST.get('quantity', 1))
+            try:
+                product = Product.objects.get(id=product_id)
+                cart, created = Cart.objects.get_or_create(user=request.user)
+                cart_item, item_created = CartItem.objects.get_or_create(cart=cart, product=product)
+                if not item_created:
+                    cart_item.quantity += quantity
+                    cart_item.save()
+                else:
+                    cart_item.quantity = quantity
+                    cart_item.save()
+                messages.success(request, f"Added {quantity} {product.name}(s) to cart!")
+            except Exception as e:
+                messages.error(request, f"Error adding to cart: {str(e)}")
+            return redirect('product_list')
+
     return render(request, 'product_list.html', {'products': products, 'categories': categories})
 
 @login_required
 def cart_view(request):
+    # Lấy giỏ hàng của user hiện tại
     cart, created = Cart.objects.get_or_create(user=request.user)
+    cart_items = CartItem.objects.filter(cart=cart)
+    cart_total = sum(item.get_total_price() for item in cart_items)
+
     if request.method == 'POST':
-        product_id = request.POST.get('product_id')
-        quantity = int(request.POST.get('quantity', 1))
-        try:
-            product = Product.objects.get(id=product_id, deleted_at__isnull=True)
-            cart_item, created = CartItem.objects.get_or_create(cart=cart, product=product)
-            if not created:
-                cart_item.quantity += quantity
-                cart_item.save()
-            messages.success(request, 'Product added to cart successfully!')
-        except Product.DoesNotExist:
-            messages.error(request, 'Product not found.')
-        except Exception as e:
-            messages.error(request, f'Error adding product to cart: {str(e)}')
-        return redirect('cart_view')
-    return render(request, 'cart.html', {'cart': cart})
+        if 'cart_item_id' in request.POST:
+            cart_item_id = request.POST.get('cart_item_id')
+
+            # Cập nhật số lượng
+            if 'update_quantity' in request.POST:
+                quantity = int(request.POST.get('quantity', 1))
+                try:
+                    cart_item = CartItem.objects.get(id=cart_item_id, cart=cart)
+                    cart_item.quantity = quantity
+                    cart_item.save()
+                    messages.success(request, f"Updated quantity for {cart_item.product.name}.")
+                except Exception as e:
+                    messages.error(request, f"Error updating quantity: {str(e)}")
+
+            # Xóa sản phẩm khỏi giỏ hàng
+            elif 'remove_item' in request.POST:
+                try:
+                    cart_item = CartItem.objects.get(id=cart_item_id, cart=cart)
+                    product_name = cart_item.product.name
+                    cart_item.delete()
+                    messages.success(request, f"Removed {product_name} from cart.")
+                except Exception as e:
+                    messages.error(request, f"Error removing item: {str(e)}")
+
+            return redirect('cart_view')
+
+    return render(request, 'cart.html', {
+        'cart_items': cart_items,
+        'cart_total': cart_total,
+    })
 
 @login_required
 def create_order(request):

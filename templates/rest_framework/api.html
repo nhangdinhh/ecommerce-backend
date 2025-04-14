@@ -1,0 +1,25 @@
+<!-- templates/rest_framework/api.html -->
+{% extends "rest_framework/base.html" %}
+{% load static %}
+
+{% block title %}
+    Ecommerce API
+{% endblock %}
+
+{% block branding %}
+    <span>
+        <a class="navbar-brand" href="{% url 'home' %}" rel="nofollow">Ecommerce API</a>
+    </span>
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h2 class="mb-4">Ecommerce API</h2>
+        <p>Welcome to the Ecommerce API! Below are the available endpoints:</p>
+        <div class="list-group">
+            {% for key, url in api_urls.items %}
+                <a href="{{ url }}" class="list-group-item list-group-item-action">{{ key|title }}</a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
