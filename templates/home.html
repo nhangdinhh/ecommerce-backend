@@ -2,6 +2,11 @@
 {% extends 'base.html' %}
 {% block title %}Home{% endblock %}
 {% block content %}
-<h2>Welcome to Ecommerce Site</h2>
-<p>Browse our categories and products!</p>
+<div class="hero-section text-center text-white">
+    <div class="hero-content">
+        <h1>Welcome to Ecommerce Site</h1>
+        <p>Browse our categories and products!</p>
+        <a href="{% url 'product_list' %}" class="btn btn-primary btn-lg">Shop Now</a>
+    </div>
+</div>
 {% endblock %}

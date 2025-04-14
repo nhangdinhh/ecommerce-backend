@@ -4,13 +4,17 @@
 {% block content %}
 <h2>Your Cart</h2>
 {% if cart.items.all %}
-    <ul>
+    <ul class="list-group mb-3">
         {% for item in cart.items.all %}
-            <li>{{ item.product.name }} - Quantity: {{ item.quantity }} - Price: ${{ item.product.price }}</li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{ item.product.name }} - Quantity: {{ item.quantity }} - Price: ${{ item.product.price }}
+                <a href="{% url 'remove_from_cart' item.id %}" class="btn btn-danger btn-sm">Remove</a>
+            </li>
         {% endfor %}
     </ul>
+    <a href="{% url 'create_order' %}" class="btn btn-primary">Place Order</a>
 {% else %}
     <p>Your cart is empty.</p>
 {% endif %}
-<a href="{% url 'create_order' %}"><button>Place Order</button></a>
+<a href="{% url 'product_list' %}" class="btn btn-secondary mt-2">Continue Shopping</a>
 {% endblock %}
