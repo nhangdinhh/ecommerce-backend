@@ -27,7 +27,7 @@ urlpatterns = [
     path('api/v1/product/<slug:slug>/images/', ProductImageAPIView.as_view(), name='product-images'),
     path('api/get-csrf-token/', get_csrf_token, name='get-csrf-token'),  # Thêm endpoint
     path('accounts/', include('django.contrib.auth.urls')),  # Thêm URL cho đăng nhập/đăng xuất
-    path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(template_name='logout.html'), name='logout'),
+    path('accounts/login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),
+    path('accounts/logout/', auth_views.LogoutView.as_view(template_name='registration/logout.html'), name='logout'),
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

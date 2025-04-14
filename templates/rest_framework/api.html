@@ -20,6 +20,9 @@
             {% for key, url in api_urls.items %}
                 <a href="{{ url }}" class="list-group-item list-group-item-action">{{ key|title }}</a>
             {% endfor %}
+            {% if not api_urls %}
+                <p class="text-muted">No endpoints available.</p>
+            {% endif %}
         </div>
     </div>
 {% endblock %}
