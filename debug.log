@@ -1352,3 +1352,23 @@ INFO 2025-04-14 16:56:10,443 autoreload Watching for file changes with StatReloa
 INFO 2025-04-14 16:56:10,443 autoreload Watching for file changes with StatReloader
 INFO 2025-04-14 16:56:10,452 autoreload Watching for file changes with StatReloader
 INFO 2025-04-14 16:56:10,452 autoreload Watching for file changes with StatReloader
+WARNING 2025-04-14 16:56:48,277 log Not Found: /api/v1/products/1
+WARNING 2025-04-14 16:56:48,287 log Not Found: /api/v1/products/thumbnail_url
+WARNING 2025-04-14 16:56:48,317 log Not Found: /api/v1/products/path/to/laptop.jpg
+WARNING 2025-04-14 16:56:48,357 log Not Found: /api/v1/products/path/to/tshirt.jpg
+WARNING 2025-04-14 16:59:15,440 log Not Found: /api/v1/products/1
+WARNING 2025-04-14 16:59:15,454 log Not Found: /api/v1/products/thumbnail_url
+WARNING 2025-04-14 16:59:15,460 log Not Found: /api/v1/products/path/to/tshirt.jpg
+WARNING 2025-04-14 16:59:15,470 log Not Found: /api/v1/products/path/to/laptop.jpg
+INFO 2025-04-14 18:20:10,598 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 18:20:11,898 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 18:20:12,130 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 18:20:12,722 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 18:20:13,566 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 18:20:14,261 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-14 18:20:56,582 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 18:20:56,797 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 18:20:56,805 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 18:20:58,986 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 18:21:04,073 autoreload Watching for file changes with StatReloader
+INFO 2025-04-14 18:21:04,617 autoreload Watching for file changes with StatReloader

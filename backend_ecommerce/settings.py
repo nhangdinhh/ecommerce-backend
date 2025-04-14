@@ -21,11 +21,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-8i+x&htz(_$s5bnh^44ndiuwjho-f%ig1$ut0e1x5-k9*gmhv*')
 DEBUG = os.getenv('DJANGO_DEBUG', 'True') == 'True'
-ALLOWED_HOSTS = [
-    'localhost',
-    '127.0.0.1',
-    'your-backend.onrender.com',  # Thay bằng domain thật của backend trên Render
-]
+# settings.py
+# settings.py
+import os
+
+# Load environment variables
+load_dotenv()
+
+# ALLOWED_HOSTS từ biến môi trường, mặc định là ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 
 # Application definition
 INSTALLED_APPS = [
