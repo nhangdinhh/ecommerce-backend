@@ -5085,3 +5085,421 @@ INFO 2025-04-21 11:43:35,735 autoreload Watching for file changes with StatReloa
 INFO 2025-04-21 11:43:45,200 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
 INFO 2025-04-21 11:43:47,194 autoreload Watching for file changes with StatReloader
 INFO 2025-04-21 11:44:55,022 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 11:52:08,727 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:03:47,400 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-21 12:04:01,275 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:06:05,807 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-21 12:06:09,779 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:06:47,905 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-21 12:06:50,178 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:09:53,597 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-21 12:09:55,525 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:10:50,590 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-21 12:11:01,284 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:13:53,218 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-21 12:13:56,379 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:14:50,662 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:17:10,170 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\urls.py changed, reloading.
+INFO 2025-04-21 12:17:10,179 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\urls.py changed, reloading.
+INFO 2025-04-21 12:17:13,560 autoreload Watching for file changes with StatReloader
+WARNING 2025-04-21 12:17:36,296 log Not Found: /favicon.ico
+INFO 2025-04-21 12:19:30,668 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-21 12:19:30,824 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-21 12:19:33,363 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:19:33,368 autoreload Watching for file changes with StatReloader
+ERROR 2025-04-21 12:19:46,403 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column products_news.summary does not exist
+LINE 1: ...CT "products_news"."id", "products_news"."title", "products_...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\views\generic\base.py", line 226, in get
+    context = self.get_context_data(**kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\products\views.py", line 66, in get_context_data
+    print("News Items:", list(context['news_items']))  # Debug
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\models\query.py", line 1935, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\models\sql\compiler.py", line 1622, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: column products_news.summary does not exist
+LINE 1: ...CT "products_news"."id", "products_news"."title", "products_...
+                                                             ^
+
+INFO 2025-04-21 12:20:54,019 autoreload C:\django_projects\backend_ecommerce\products\models.py changed, reloading.
+INFO 2025-04-21 12:20:54,088 autoreload C:\django_projects\backend_ecommerce\products\models.py changed, reloading.
+INFO 2025-04-21 12:20:56,386 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:20:56,396 autoreload Watching for file changes with StatReloader
+ERROR 2025-04-21 12:21:22,898 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column products_news.link does not exist
+LINE 1: ...CT "products_news"."id", "products_news"."title", "products_...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\views\generic\base.py", line 226, in get
+    context = self.get_context_data(**kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\products\views.py", line 66, in get_context_data
+    print("News Items:", list(context['news_items']))  # Debug
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\models\query.py", line 1935, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\models\sql\compiler.py", line 1622, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: column products_news.link does not exist
+LINE 1: ...CT "products_news"."id", "products_news"."title", "products_...
+                                                             ^
+
+INFO 2025-04-21 12:21:39,191 autoreload C:\django_projects\backend_ecommerce\products\serializers.py changed, reloading.
+INFO 2025-04-21 12:21:40,066 autoreload C:\django_projects\backend_ecommerce\products\serializers.py changed, reloading.
+INFO 2025-04-21 12:21:42,259 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:21:42,460 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:22:14,741 autoreload C:\django_projects\backend_ecommerce\products\serializers.py changed, reloading.
+INFO 2025-04-21 12:22:14,810 autoreload C:\django_projects\backend_ecommerce\products\serializers.py changed, reloading.
+INFO 2025-04-21 12:22:17,164 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:22:18,673 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:23:12,747 autoreload C:\django_projects\backend_ecommerce\products\serializers.py changed, reloading.
+INFO 2025-04-21 12:23:13,137 autoreload C:\django_projects\backend_ecommerce\products\serializers.py changed, reloading.
+INFO 2025-04-21 12:23:14,858 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:23:15,083 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:23:20,530 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:23:33,055 autoreload C:\django_projects\backend_ecommerce\products\serializers.py changed, reloading.
+INFO 2025-04-21 12:23:33,048 autoreload C:\django_projects\backend_ecommerce\products\serializers.py changed, reloading.
+INFO 2025-04-21 12:23:33,036 autoreload C:\django_projects\backend_ecommerce\products\serializers.py changed, reloading.
+INFO 2025-04-21 12:23:39,090 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:23:39,092 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:23:39,130 autoreload Watching for file changes with StatReloader
+ERROR 2025-04-21 12:24:02,907 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\urls\base.py", line 81, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^
+KeyError: 'products'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\urls\base.py", line 92, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'products' is not a registered namespace
+INFO 2025-04-21 12:25:00,357 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\urls.py changed, reloading.
+INFO 2025-04-21 12:25:00,778 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\urls.py changed, reloading.
+INFO 2025-04-21 12:25:00,664 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\urls.py changed, reloading.
+INFO 2025-04-21 12:25:17,575 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:25:18,863 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:25:18,876 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:27:06,406 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-21 12:27:06,485 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-21 12:27:06,877 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-21 12:27:14,372 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:27:14,372 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:27:14,373 autoreload Watching for file changes with StatReloader
+ERROR 2025-04-21 12:27:31,384 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\views\generic\base.py", line 226, in get
+    context = self.get_context_data(**kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\products\views.py", line 65, in get_context_data
+    print("News Items:", list(context['news_items']))  # Debug
+                              ~~~~~~~^^^^^^^^^^^^^^
+KeyError: 'news_items'
+ERROR 2025-04-21 12:30:33,603 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\views\generic\base.py", line 226, in get
+    context = self.get_context_data(**kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\products\views.py", line 65, in get_context_data
+    print("News Items:", list(context['news_items']))  # Debug
+                              ~~~~~~~^^^^^^^^^^^^^^
+KeyError: 'news_items'
+INFO 2025-04-21 12:32:26,879 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-21 12:32:26,881 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-21 12:32:27,054 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-21 12:32:37,827 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:32:37,829 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:32:38,765 autoreload Watching for file changes with StatReloader
+ERROR 2025-04-21 12:32:58,320 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\urls\base.py", line 81, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^
+KeyError: 'products'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\urls\base.py", line 92, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'products' is not a registered namespace
+INFO 2025-04-21 12:33:59,679 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\urls.py changed, reloading.
+INFO 2025-04-21 12:34:00,969 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\urls.py changed, reloading.
+INFO 2025-04-21 12:34:01,050 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\urls.py changed, reloading.
+INFO 2025-04-21 12:34:03,474 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:34:05,113 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:34:05,114 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:36:11,413 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-21 12:36:11,474 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-21 12:36:12,191 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-21 12:36:15,033 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:36:15,053 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:36:15,352 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:36:21,033 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-21 12:36:21,163 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-21 12:36:21,422 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-21 12:36:23,735 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:36:23,771 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:36:24,075 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:36:58,529 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-21 12:36:58,627 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-21 12:36:58,663 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-21 12:37:01,852 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:37:02,072 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:37:02,381 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:37:13,604 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-21 12:37:13,803 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-21 12:37:13,863 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-21 12:37:17,420 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:37:17,596 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:37:17,848 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:38:15,667 autoreload C:\django_projects\backend_ecommerce\products\serializers.py changed, reloading.
+INFO 2025-04-21 12:38:15,795 autoreload C:\django_projects\backend_ecommerce\products\serializers.py changed, reloading.
+INFO 2025-04-21 12:38:15,799 autoreload C:\django_projects\backend_ecommerce\products\serializers.py changed, reloading.
+INFO 2025-04-21 12:38:19,482 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:38:19,483 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:38:19,520 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 12:39:21,230 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 13:09:18,068 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 13:16:09,656 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-21 13:16:26,262 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 13:17:01,127 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-21 13:17:03,715 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 13:17:21,714 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-21 13:17:24,236 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 13:17:36,141 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-21 13:17:39,624 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 13:17:51,474 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-21 13:17:54,102 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 13:22:18,983 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-21 13:22:22,252 autoreload Watching for file changes with StatReloader
+WARNING 2025-04-21 13:22:49,057 log Not Found: /favicon.ico
+INFO 2025-04-21 19:11:14,393 autoreload Watching for file changes with StatReloader
+WARNING 2025-04-21 19:12:02,953 log Not Found: /favicon.ico
+INFO 2025-04-21 19:14:25,393 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-21 19:14:39,998 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 19:15:33,390 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-21 19:15:35,742 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 19:15:43,663 autoreload C:\django_projects\backend_ecommerce\products\models.py changed, reloading.
+INFO 2025-04-21 19:15:46,740 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 19:19:18,639 autoreload C:\django_projects\backend_ecommerce\products\models.py changed, reloading.
+INFO 2025-04-21 19:19:21,745 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 19:19:42,723 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-21 19:19:45,099 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 19:34:02,864 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-21 19:34:14,121 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 19:34:47,970 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-21 19:34:51,857 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 19:41:17,732 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-21 19:41:26,389 autoreload Watching for file changes with StatReloader

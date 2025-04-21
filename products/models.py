@@ -118,13 +118,14 @@ class FavoriteProduct(models.Model):
     def __str__(self):
         return f"{self.user.username} - {self.product.name}"
 class News(models.Model):
-    title = models.CharField(max_length=200)
-    summary = models.TextField()
-    link = models.URLField()
-    created_at = models.DateTimeField(auto_now_add=True)
+    title = models.CharField(max_length=255)
+    link = models.URLField(max_length=255)  # Có thể thay bằng slug nếu bạn dùng slug
+    created_at = models.DateTimeField(default=timezone.now)
+    id = models.AutoField(primary_key=True)
+    description = models.TextField(blank=True, null=True)  # Thêm trường description
+    image = models.ImageField(upload_to='news_images/', null=True, blank=True)  # Thêm trường image
+    thumbnail = models.ImageField(upload_to='news_thumbnails/', null=True, blank=True)  # Thêm trường thumbnail
+    deleted_at = models.DateTimeField(null=True, blank=True)  # Thêm trường deleted_at
 
     def __str__(self):
         return self.title
-
-    class Meta:
-        ordering = ['-created_at']

@@ -22,6 +22,27 @@ from decimal import Decimal
 from django.views.generic import TemplateView, ListView, DetailView
 from django.contrib.auth.decorators import login_required
 
+
+def home(request):
+    categories = Category.objects.filter(parent__isnull=True, deleted_at__isnull=True)
+    products = Product.objects.filter(deleted_at__isnull=True).select_related('category')
+
+    products_list = list(products)
+    flash_sale_products = random.sample(products_list, min(len(products_list), 4)) if products_list else []
+
+    flash_sale_end = timezone.now() + timedelta(hours=24)
+
+    # Lấy 5 tin tức mới nhất
+    news_items = News.objects.filter(deleted_at__isnull=True).order_by('-created_at')[:5]
+
+    context = {
+        'categories': categories,
+        'flash_sale_products': flash_sale_products,
+        'products': products,
+        'flash_sale_end': flash_sale_end,
+        'news_items': news_items,
+    }
+    return render(request, 'home.html', context)
 # View trang profile
 @login_required
 def profile_view(request):
@@ -55,14 +76,13 @@ class HomeView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['products'] = Product.objects.filter(is_public=True, deleted_at__isnull=True)[:8]
+        context['products'] = Product.objects.filter(is_public=True, deleted_at__isnull=True).select_related('category')  # Xóa [:8], thêm select_related
         context['categories'] = Category.objects.filter(parent=None, deleted_at__isnull=True)
         context['flash_sale_products'] = Product.objects.filter(is_flash_sale=True, is_public=True, deleted_at__isnull=True)[:4]
         context['flash_sale_end_time'] = Product.objects.filter(is_flash_sale=True, deleted_at__isnull=True).values_list('flash_sale_end', flat=True).first() or (timezone.now() + timedelta(hours=24))
-        context['news_items'] = News.objects.filter(deleted_at__isnull=True).order_by('-created_at')[:5]  # Lấy 5 tin tức mới nhất
-        print("News Items:", list(context['news_items']))  # Debug
+        context['news_items'] = News.objects.filter(deleted_at__isnull=True).order_by('-created_at')[:5]
+        print("News Items:", list(context['news_items']))
         return context
-
 # View chi tiết tin tức
 class NewsDetailView(DetailView):
     model = News
@@ -522,7 +542,7 @@ class ProductImageAPIView(APIView):
         image.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-class ProductImageDetailAPIView(ApiView):
+class ProductImageDetailAPIView(APIView):
     def get(self, request, slug, id):
         product = get_object_or_404(Product, slug=slug, deleted_at__isnull=True)
         image = get_object_or_404(ProductImage, id=id, product=product, deleted_at__isnull=True)
@@ -545,7 +565,7 @@ class ProductImageDetailAPIView(ApiView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 # Product Comment API Views
-class ProductCommentAPIView(ApiView):
+class ProductCommentAPIView(APIView):
     pagination_class = PageNumberPagination
 
     def get(self, request, slug, comment_id=None):
@@ -584,7 +604,7 @@ class ProductCommentAPIView(ApiView):
         comment.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-class ProductCommentDetailAPIView(ApiView):
+class ProductCommentDetailAPIView(APIView):
     def get(self, request, product_id_slug, id_slug):
         try:
             product = Product.objects.get(slug=product_id_slug, deleted_at__isnull=True)
@@ -623,7 +643,7 @@ class ProductCommentDetailAPIView(ApiView):
             return Response({"error": "Comment not found"}, status=status.HTTP_404_NOT_FOUND)
 
 # Cart API Views
-class CartAPIView(ApiView):
+class CartAPIView(APIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
@@ -665,7 +685,7 @@ class CartAPIView(ApiView):
             return Response({"error": "Cart not found"}, status=status.HTTP_404_NOT_FOUND)
 
 # Order API Views
-class OrderAPIView(ApiView):
+class OrderAPIView(APIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request):
