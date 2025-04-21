@@ -5503,3 +5503,344 @@ INFO 2025-04-21 19:34:47,970 autoreload C:\django_projects\backend_ecommerce\pro
 INFO 2025-04-21 19:34:51,857 autoreload Watching for file changes with StatReloader
 INFO 2025-04-21 19:41:17,732 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
 INFO 2025-04-21 19:41:26,389 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 20:42:13,188 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 21:50:52,182 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 22:00:57,268 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 22:16:56,924 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 22:41:39,695 autoreload C:\django_projects\backend_ecommerce\products\models.py changed, reloading.
+INFO 2025-04-21 22:41:39,985 autoreload C:\django_projects\backend_ecommerce\products\models.py changed, reloading.
+INFO 2025-04-21 22:42:09,893 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 22:42:09,892 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 22:42:30,907 autoreload C:\django_projects\backend_ecommerce\products\models.py changed, reloading.
+INFO 2025-04-21 22:42:30,947 autoreload C:\django_projects\backend_ecommerce\products\models.py changed, reloading.
+INFO 2025-04-21 22:42:33,749 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 22:42:33,975 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 22:43:18,979 autoreload C:\django_projects\backend_ecommerce\products\models.py changed, reloading.
+INFO 2025-04-21 22:43:19,179 autoreload C:\django_projects\backend_ecommerce\products\models.py changed, reloading.
+INFO 2025-04-21 22:43:28,807 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 22:43:28,808 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 22:44:22,876 autoreload C:\django_projects\backend_ecommerce\products\models.py changed, reloading.
+INFO 2025-04-21 22:44:22,919 autoreload C:\django_projects\backend_ecommerce\products\models.py changed, reloading.
+INFO 2025-04-21 22:44:27,595 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 22:44:27,598 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 22:45:42,822 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-21 22:45:42,839 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-21 22:45:46,211 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 22:45:46,242 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 22:49:58,602 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-21 22:49:58,597 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-21 22:50:22,815 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 22:50:23,488 autoreload Watching for file changes with StatReloader
+ERROR 2025-04-21 23:00:32,253 log Internal Server Error: /profile/
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\products\views.py", line 72, in profile_view
+    return render(request, 'profile.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\defaulttags.py", line 976, in do_if
+    nodelist = parser.parse(("endif",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 567, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 13: 'static', expected 'endif'. Did you forget to register or load this tag?
+ERROR 2025-04-21 23:00:35,315 log Internal Server Error: /profile/
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\products\views.py", line 72, in profile_view
+    return render(request, 'profile.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\defaulttags.py", line 976, in do_if
+    nodelist = parser.parse(("endif",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 567, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 13: 'static', expected 'endif'. Did you forget to register or load this tag?
+ERROR 2025-04-21 23:00:47,911 log Internal Server Error: /profile/
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\products\views.py", line 72, in profile_view
+    return render(request, 'profile.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\defaulttags.py", line 976, in do_if
+    nodelist = parser.parse(("endif",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\django_projects\backend_ecommerce\env\Lib\site-packages\django\template\base.py", line 567, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 13: 'static', expected 'endif'. Did you forget to register or load this tag?
+INFO 2025-04-21 23:04:22,032 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 23:10:50,342 autoreload C:\django_projects\backend_ecommerce\products\models.py changed, reloading.
+INFO 2025-04-21 23:10:50,048 autoreload C:\django_projects\backend_ecommerce\products\models.py changed, reloading.
+INFO 2025-04-21 23:11:05,313 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 23:11:05,552 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 23:14:42,923 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-21 23:14:43,458 autoreload C:\django_projects\backend_ecommerce\backend_ecommerce\settings.py changed, reloading.
+INFO 2025-04-21 23:14:52,349 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 23:14:52,563 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 23:18:33,384 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 23:19:40,004 autoreload C:\django_projects\backend_ecommerce\products\apps.py changed, reloading.
+INFO 2025-04-21 23:19:40,842 autoreload C:\django_projects\backend_ecommerce\products\apps.py changed, reloading.
+INFO 2025-04-21 23:19:41,146 autoreload C:\django_projects\backend_ecommerce\products\apps.py changed, reloading.
+INFO 2025-04-21 23:20:15,580 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 23:20:17,797 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 23:20:17,791 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 23:20:42,327 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 23:53:24,737 autoreload C:\django_projects\backend_ecommerce\products\models.py changed, reloading.
+INFO 2025-04-21 23:53:27,252 autoreload C:\django_projects\backend_ecommerce\products\models.py changed, reloading.
+INFO 2025-04-21 23:53:28,737 autoreload C:\django_projects\backend_ecommerce\products\models.py changed, reloading.
+INFO 2025-04-21 23:54:53,477 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 23:54:53,485 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 23:54:57,884 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 23:55:42,348 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-21 23:55:42,434 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-21 23:55:42,512 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-21 23:55:46,930 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 23:55:47,024 autoreload Watching for file changes with StatReloader
+INFO 2025-04-21 23:55:47,024 autoreload Watching for file changes with StatReloader
+INFO 2025-04-22 00:00:31,100 autoreload Watching for file changes with StatReloader
+WARNING 2025-04-22 00:02:30,713 base Method Not Allowed (GET): /logout/
+WARNING 2025-04-22 00:02:30,791 log Method Not Allowed: /logout/
+INFO 2025-04-22 00:05:35,721 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-22 00:05:36,079 autoreload C:\django_projects\backend_ecommerce\products\urls.py changed, reloading.
+INFO 2025-04-22 00:06:01,980 autoreload Watching for file changes with StatReloader
+INFO 2025-04-22 00:06:01,980 autoreload Watching for file changes with StatReloader
+INFO 2025-04-22 00:07:13,348 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-22 00:07:13,349 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-22 00:07:23,266 autoreload Watching for file changes with StatReloader
+INFO 2025-04-22 00:07:23,266 autoreload Watching for file changes with StatReloader
+INFO 2025-04-22 00:07:53,601 autoreload C:\django_projects\backend_ecommerce\products\models.py changed, reloading.
+INFO 2025-04-22 00:07:53,694 autoreload C:\django_projects\backend_ecommerce\products\models.py changed, reloading.
+INFO 2025-04-22 00:07:57,171 autoreload Watching for file changes with StatReloader
+INFO 2025-04-22 00:07:57,272 autoreload Watching for file changes with StatReloader
+INFO 2025-04-22 00:10:25,994 autoreload Watching for file changes with StatReloader
+INFO 2025-04-22 00:11:00,941 autoreload C:\django_projects\backend_ecommerce\products\models.py changed, reloading.
+INFO 2025-04-22 00:11:02,171 autoreload C:\django_projects\backend_ecommerce\products\models.py changed, reloading.
+INFO 2025-04-22 00:11:02,183 autoreload C:\django_projects\backend_ecommerce\products\models.py changed, reloading.
+INFO 2025-04-22 00:11:07,189 autoreload Watching for file changes with StatReloader
+INFO 2025-04-22 00:11:07,192 autoreload Watching for file changes with StatReloader
+INFO 2025-04-22 00:11:07,795 autoreload Watching for file changes with StatReloader
+INFO 2025-04-22 00:33:27,353 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-22 00:33:30,181 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-22 00:33:30,475 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-22 00:34:30,043 autoreload Watching for file changes with StatReloader
+INFO 2025-04-22 00:34:30,318 autoreload Watching for file changes with StatReloader
+INFO 2025-04-22 00:34:31,608 autoreload Watching for file changes with StatReloader
+INFO 2025-04-22 00:36:30,777 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-22 00:36:30,871 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-22 00:36:30,930 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-22 00:36:33,935 autoreload Watching for file changes with StatReloader
+INFO 2025-04-22 00:36:33,937 autoreload Watching for file changes with StatReloader
+INFO 2025-04-22 00:36:33,926 autoreload Watching for file changes with StatReloader
+INFO 2025-04-22 00:37:50,720 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-22 00:37:50,837 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-22 00:37:52,034 autoreload C:\django_projects\backend_ecommerce\products\views.py changed, reloading.
+INFO 2025-04-22 00:38:07,541 autoreload Watching for file changes with StatReloader
+INFO 2025-04-22 00:38:07,542 autoreload Watching for file changes with StatReloader
+INFO 2025-04-22 00:38:07,543 autoreload Watching for file changes with StatReloader
+INFO 2025-04-22 00:38:53,327 autoreload Watching for file changes with StatReloader

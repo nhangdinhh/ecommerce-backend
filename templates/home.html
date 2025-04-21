@@ -15,17 +15,17 @@
         </div>
     </section>
 
-    <!-- Category Section -->
-    <section class="category-section py-5">
-        <div class="container text-center">
-            <h2 class="mb-4">Product Categories</h2>
-            <div class="category-filter mb-4">
-                {% for category in categories %}
-                    <a href="{% url 'products:category_products' category.id %}" class="btn btn-outline-primary {% if forloop.first %}active{% endif %}">{{ category.name }}</a>
-                {% endfor %}
-            </div>
+   <!-- Category Section -->
+<section class="category-section py-5">
+    <div class="container">
+        <h2 class="mb-4">Categories</h2> <!-- Căn trái (không cần text-center) -->
+        <div class="category-filter mb-4 text-center"> <!-- Giữ nút category-filter căn giữa -->
+            {% for category in categories %}
+                <a href="{% url 'products:category_products' category.id %}" class="btn btn-outline-primary {% if forloop.first %}active{% endif %}">{{ category.name }}</a>
+            {% endfor %}
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Flash Sale Section -->
     <section class="flash-sale py-5">
@@ -131,168 +131,172 @@
     </section>
 
     <!-- Latest News Section -->
-    <section class="latest-news py-5">
-        <div class="container">
-            <h2 class="mb-5 text-center">Latest News</h2>
-            <div class="row">
-                <!-- Main News (Large) -->
-                <div class="col-md-8 mb-4">
-                    <div class="card h-100 shadow-sm">
-                        <div class="row g-0">
-                            <div class="col-md-6">
-                                <img src="https://via.placeholder.com/600x400" class="img-fluid rounded-start news-main-img" alt="Sample News">
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card-body">
-                                    <h3 class="card-title mb-3">Sample News Title</h3>
-                                    <p class="card-text text-muted">This is a placeholder description for the main news article. Stay tuned for updates!</p>
-                                    <a href="#" class="btn btn-outline-primary mt-2">Read More</a>
-                                </div>
-                            </div>
+<section class="latest-news py-5">
+    <div class="container">
+        <h2 class="mb-5">Latest News</h2> <!-- Bỏ text-center để căn trái -->
+        <div class="row">
+            <!-- Main News (Large) -->
+            <div class="col-md-8 mb-4">
+                <!-- Tin 1 -->
+                <div class="card h-100 shadow-sm">
+                    <div class="row g-0">
+                        <div class="col-md-6">
+                            <img src="/media/news/news-1.jpg" class="img-fluid rounded-start news-main-img" alt="News 1">
                         </div>
-                    </div>
-                </div>
-
-                <!-- Side News (Small) -->
-                <div class="col-md-4">
-                    <div class="row">
-                        <!-- Side News 1 -->
-                        <div class="col-12 mb-4">
-                            <div class="card h-100 shadow-sm">
-                                <div class="row g-0">
-                                    <div class="col-4">
-                                        <img src="https://via.placeholder.com/150x100" class="img-fluid rounded-start news-side-img" alt="Sample News 1">
-                                    </div>
-                                    <div class="col-8">
-                                        <div class="card-body py-2">
-                                            <h6 class="card-title mb-2">Sample News 1</h6>
-                                            <a href="#" class="btn btn-link p-0">Read More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Side News 2 -->
-                        <div class="col-12 mb-4">
-                            <div class="card h-100 shadow-sm">
-                                <div class="row g-0">
-                                    <div class="col-4">
-                                        <img src="https://via.placeholder.com/150x100" class="img-fluid rounded-start news-side-img" alt="Sample News 2">
-                                    </div>
-                                    <div class="col-8">
-                                        <div class="card-body py-2">
-                                            <h6 class="card-title mb-2">Sample News 2</h6>
-                                            <a href="#" class="btn btn-link p-0">Read More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Side News 3 -->
-                        <div class="col-12 mb-4">
-                            <div class="card h-100 shadow-sm">
-                                <div class="row g-0">
-                                    <div class="col-4">
-                                        <img src="https://via.placeholder.com/150x100" class="img-fluid rounded-start news-side-img" alt="Sample News 3">
-                                    </div>
-                                    <div class="col-8">
-                                        <div class="card-body py-2">
-                                            <h6 class="card-title mb-2">Sample News 3</h6>
-                                            <a href="#" class="btn btn-link p-0">Read More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Side News 4 -->
-                        <div class="col-12 mb-4">
-                            <div class="card h-100 shadow-sm">
-                                <div class="row g-0">
-                                    <div class="col-4">
-                                        <img src="https://via.placeholder.com/150x100" class="img-fluid rounded-start news-side-img" alt="Sample News 4">
-                                    </div>
-                                    <div class="col-8">
-                                        <div class="card-body py-2">
-                                            <h6 class="card-title mb-2">Sample News 4</h6>
-                                            <a href="#" class="btn btn-link p-0">Read More</a>
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="col-md-6">
+                            <div class="card-body">
+                                <h3 class="card-title mb-3">Xạ thủ người Lào Gumayusi đấm huyền thoại Faker vì quá bức xúc.</h3>
+                                <p class="card-text text-muted">Stay tuned for updates!</p>
+                                <a href="https://vnexpress.net/" class="btn btn-link p-0"><h5>Read More</h2></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Side News (Small) -->
+            <div class="col-md-4">
+                <div class="row">
+                    <!-- Side News 2 -->
+                    <div class="col-12 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="row g-0">
+                                <div class="col-4">
+                                    <img src="/media/news/news-2.jpg" class="img-fluid rounded-start news-side-img" alt="News 2">
+                                </div>
+                                <div class="col-8">
+                                    <div class="card-body py-2">
+                                        <h6 class="card-title mb-2">Elon Musk sẽ đến thăm sinh viên IT trường Đại học Đông Á vào tháng 5 năm nay.</h6>
+                                        <a href="https://vnexpress.net/" class="btn btn-link p-0"><h5>Read More</h5></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Side News 3 -->
+                    <div class="col-12 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="row g-0">
+                                <div class="col-4">
+                                    <img src="/media/news/news-3.jpg" class="img-fluid rounded-start news-side-img" alt="News 3">
+                                </div>
+                                <div class="col-8">
+                                    <div class="card-body py-2">
+                                        <h6 class="card-title mb-2">Thị trường bitcoin giảm mạnh chỉ vì câu 'Hello Afternoon'.</h6>
+                                        <a href="https://vnexpress.net/" class="btn btn-link p-0"><h5>Read More</h5></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Side News 4 -->
+                    <div class="col-12 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="row g-0">
+                                <div class="col-4">
+                                    <img src="/media/news/news-4.jpg" class="img-fluid rounded-start news-side-img" alt="News 4">
+                                </div>
+                                <div class="col-8">
+                                    <div class="card-body py-2">
+                                        <h6 class="card-title mb-2">X.Huy một sinh viên rất ham chơi nhưng đã bỏ xa các bạn cùng lớp khi đọc xong cuốn '300 bài code thiếu nhi'.</h6>
+                                        <a href="https://vnexpress.net/" class="btn btn-link p-0"><h5>Read More</h5></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Side News 5 -->
+                    <!-- Side News 5 -->
+<div class="col-12 mb-4">
+    <div class="card h-100 shadow-sm">
+        <div class="row g-0">
+            <div class="col-4">
+                <img src="/media/news/news-5.jpg?v={% now 'U' %}" class="img-fluid rounded-start news-side-img" alt="News 5">
+            </div>
+            <div class="col-8">
+                <div class="card-body py-2">
+                    <h6 class="card-title mb-2">Bán được 1 tỉ gói mè chỉ cần ngủ đủ 24 tiếng 1 ngày</h6>
+                    <a href="https://vnexpress.net/" class="btn btn-link p-0"><h5>Read More</h5></a>
+                </div>
+            </div>
         </div>
-    </section>
+    </div>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- JavaScript cho đồng hồ đếm ngược và cuộn mượt -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const countdownElements = document.querySelectorAll('.countdown');
-            
-            countdownElements.forEach(function(element) {
-                const endTimeStr = element.getAttribute('data-end-time');
-                if (!endTimeStr) {
-                    element.textContent = "Flash Sale Ended";
+   <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const countdownElements = document.querySelectorAll('.countdown');
+        
+        countdownElements.forEach(function(element) {
+            // Tính thời gian kết thúc ban đầu: 24 tiếng từ thời điểm hiện tại
+            let endTime = new Date().getTime() + (24 * 60 * 60 * 1000); // 24 tiếng từ bây giờ
+
+            const updateCountdown = () => {
+                const now = new Date().getTime();
+                let timeLeft = endTime - now;
+
+                // Nếu thời gian đếm ngược đã hết, reset endTime và hiển thị thông báo
+                if (timeLeft <= 0) {
+                    element.textContent = "Flash Sale Resetting..."; // Thông báo tạm thời
+                    setTimeout(() => {
+                        endTime = now + (24 * 60 * 60 * 1000); // Reset 24 tiếng từ thời điểm hiện tại
+                        timeLeft = endTime - now;
+                        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                        element.textContent = `${hours}h ${minutes}m ${seconds}s`;
+                        updateCountdown(); // Tiếp tục đếm ngược ngay sau khi reset
+                    }, 2000); // Hiển thị thông báo trong 2 giây
                     return;
                 }
 
-                const endTime = new Date(endTimeStr).getTime();
-                if (isNaN(endTime)) {
-                    element.textContent = "Invalid End Time";
-                    return;
-                }
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                const updateCountdown = () => {
-                    const now = new Date().getTime();
-                    const timeLeft = endTime - now;
+                element.textContent = `${hours}h ${minutes}m ${seconds}s`;
+                setTimeout(updateCountdown, 1000);
+            };
 
-                    if (timeLeft <= 0) {
-                        element.textContent = "Flash Sale Ended";
-                        return;
-                    }
-
-                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-                    element.textContent = `${hours}h ${minutes}m ${seconds}s`;
-                    setTimeout(updateCountdown, 1000);
-                };
-
-                updateCountdown();
-            });
+            updateCountdown();
         });
+    });
 
-        function scrollToProducts() {
-            const target = document.getElementById('our-products');
-            if (target) {
-                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
-                const startPosition = window.pageYOffset;
-                const distance = targetPosition - startPosition;
-                const duration = 1200;
-                let startTime = null;
+    // Giữ nguyên phần scrollToProducts không thay đổi
+    function scrollToProducts() {
+        const target = document.getElementById('our-products');
+        if (target) {
+            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+            const startPosition = window.pageYOffset;
+            const distance = targetPosition - startPosition;
+            const duration = 1200;
+            let startTime = null;
 
-                function animation(currentTime) {
-                    if (startTime === null) startTime = currentTime;
-                    const timeElapsed = currentTime - startTime;
-                    const progress = Math.min(timeElapsed / duration, 1);
-                    const ease = easeInOutQuad(progress);
+            function animation(currentTime) {
+                if (startTime === null) startTime = currentTime;
+                const timeElapsed = currentTime - startTime;
+                const progress = Math.min(timeElapsed / duration, 1);
+                const ease = easeInOutQuad(progress);
 
-                    window.scrollTo(0, startPosition + distance * ease);
+                window.scrollTo(0, startPosition + distance * ease);
 
-                    if (timeElapsed < duration) {
-                        requestAnimationFrame(animation);
-                    }
+                if (timeElapsed < duration) {
+                    requestAnimationFrame(animation);
                 }
-
-                function easeInOutQuad(t) {
-                    return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
-                }
-
-                requestAnimationFrame(animation);
             }
+
+            function easeInOutQuad(t) {
+                return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+            }
+
+            requestAnimationFrame(animation);
         }
-    </script>
+    }
+</script>
 {% endblock %}

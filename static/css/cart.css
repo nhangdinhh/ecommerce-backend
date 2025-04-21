@@ -49,11 +49,28 @@ h2.mb-4 {
 .table td, .table th {
     vertical-align: middle;
     padding: 15px;
+    text-align: center; /* Căn giữa tất cả nội dung trong các cột */
 }
 
+.table td:nth-child(1), .table th:nth-child(1) {
+    text-align: left; /* Căn trái cột Product */
+}
+
+/* Kiểu dáng cho hình ảnh trong cột Image */
+.cart-item-img {
+    width: 80px !important; /* Cập nhật width thành 80px */
+    height: 65px !important; /* Cập nhật height thành 65px */
+    object-fit: cover;
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto; /* Căn giữa hình ảnh trong cột */
+}
+
+/* Đảm bảo các form trong cột Quantity hiển thị đẹp */
 .table td form {
     display: flex;
     align-items: center;
+    justify-content: center; /* Căn giữa form trong cột */
     gap: 10px;
 }
 
@@ -61,6 +78,7 @@ h2.mb-4 {
     border-radius: 5px;
     border: 1px solid #ced4da;
     transition: border-color 0.3s ease;
+    width: 100px; /* Đảm bảo kích thước cố định cho input */
 }
 
 .table .form-control:focus {
@@ -129,5 +147,10 @@ tfoot td {
     .text-end .btn-primary {
         font-size: 1rem;
         padding: 8px 15px;
+    }
+
+    .cart-item-img {
+        width: 60px !important; /* Giảm xuống 60px cho màn hình nhỏ */
+        height: 50px !important; /* Giảm xuống 50px cho màn hình nhỏ */
     }
 }

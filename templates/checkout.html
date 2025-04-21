@@ -7,7 +7,7 @@
 {% block content %}
 <div class="container mt-4">
     <h2 class="mb-4">Checkout</h2>
-    {% if messages %}z
+    {% if messages %}
         {% for message in messages %}
             <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
                 {{ message }}
@@ -32,6 +32,25 @@
                     <label for="phone_number" class="form-label">Phone Number:</label>
                     <input type="tel" class="form-control" id="phone_number" name="phone_number" required>
                 </div>
+
+                <!-- Phương thức vận chuyển -->
+                <div class="mb-3">
+                    <label for="shipping_method" class="form-label">Shipping Method:</label>
+                    <select class="form-control" id="shipping_method" name="shipping_method" onchange="updateTotal()">
+                        <option value="normal" data-fee="5">Normal ($5)</option>
+                        <option value="fast" data-fee="10">Fast ($10)</option>
+                        <option value="express" data-fee="20">Express ($20)</option>
+                    </select>
+                </div>
+
+                <!-- Phương thức thanh toán -->
+                <div class="mb-3">
+                    <label for="payment_method" class="form-label">Payment Method:</label>
+                    <select class="form-control" id="payment_method" name="payment_method" disabled>
+                        <option value="cod" selected>Cash on Delivery (COD)</option>
+                    </select>
+                </div>
+
                 <button type="submit" class="btn btn-primary">Confirm Order</button>
             </form>
         </div>
@@ -59,8 +78,16 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="3" class="text-end"><strong>Total:</strong></td>
+                            <td colspan="3" class="text-end"><strong>Subtotal:</strong></td>
                             <td><strong>${{ cart_total }}</strong></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="text-end"><strong>Shipping Fee:</strong></td>
+                            <td><strong id="shipping_fee">$5</strong></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="text-end"><strong>Grand Total:</strong></td>
+                            <td><strong id="grand_total">${{ cart_total|add:5 }}</strong></td>
                         </tr>
                     </tfoot>
                 </table>
@@ -68,4 +95,24 @@
         </div>
     </div>
 </div>
+
+<script>
+    // JavaScript để cập nhật tổng tiền khi thay đổi phương thức vận chuyển
+    function updateTotal() {
+        const shippingMethod = document.getElementById('shipping_method');
+        const shippingFeeElement = document.getElementById('shipping_fee');
+        const grandTotalElement = document.getElementById('grand_total');
+        const cartTotal = {{ cart_total }}; // Lấy giá trị từ template
+
+        // Lấy phí vận chuyển từ tùy chọn được chọn
+        const shippingFee = parseFloat(shippingMethod.options[shippingMethod.selectedIndex].dataset.fee);
+
+        // Cập nhật phí vận chuyển
+        shippingFeeElement.textContent = `$${shippingFee}`;
+
+        // Tính và cập nhật tổng tiền
+        const grandTotal = cartTotal + shippingFee;
+        grandTotalElement.textContent = `$${grandTotal.toFixed(2)}`;
+    }
+</script>
 {% endblock %}

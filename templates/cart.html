@@ -2,7 +2,7 @@
 {% block title %}Cart{% endblock %}
 {% block styles %}
     {% load static %}
-    <link rel="stylesheet" href="{% static 'static/css/cart.css' %}">
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}?v={% now 'U' %}">
 {% endblock %}
 {% block content %}
 <div class="container mt-4">
@@ -21,6 +21,7 @@
                 <thead>
                     <tr>
                         <th>Product</th>
+                        <th>Image</th>
                         <th>Price</th>
                         <th>Quantity</th>
                         <th>Total</th>
@@ -31,6 +32,16 @@
                     {% for item in cart_items %}
                         <tr>
                             <td>{{ item.product.name }}</td>
+                            <td>
+                                <!-- Hiển thị hình ảnh sản phẩm -->
+                                {% if item.product.image %}
+                                    <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="cart-item-img">
+                                {% elif item.product.thumbnail and item.product.thumbnail.url %}
+                                    <img src="{{ item.product.thumbnail.url }}" alt="{{ item.product.name }}" class="cart-item-img">
+                                {% else %}
+                                    <img src="https://via.placeholder.com/100x85" alt="Placeholder" class="cart-item-img">
+                                {% endif %}
+                            </td>
                             <td>${{ item.product.price }}</td>
                             <td>
                                 <form method="POST" action="{% url 'cart_view' %}">
@@ -53,7 +64,7 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td colspan="3" class="text-end"><strong>Total:</strong></td>
+                        <td colspan="4" class="text-end"><strong>Total:</strong></td>
                         <td><strong>${{ cart_total }}</strong></td>
                         <td></td>
                     </tr>

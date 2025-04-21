@@ -42,6 +42,9 @@ web_urlpatterns = [
     path('product/<slug:slug>/', views.product_detail, name='product_detail'),  # Chi tiết sản phẩm
     path('profile/', views.profile_view, name='profile'),  # Trang profile người dùng
     path('news/<slug:slug>/', views.NewsDetailView.as_view(), name='news_detail'),  # Chi tiết tin tức
+    path('checkout/', views.checkout_view, name='checkout'),
+
+    
 ]
 
 # Gộp api_urlpatterns và web_urlpatterns thành urlpatterns

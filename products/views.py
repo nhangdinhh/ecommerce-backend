@@ -720,3 +720,50 @@ class OrderAPIView(APIView):
 @ensure_csrf_cookie
 def get_csrf_token(request):
     return HttpResponse("CSRF token set")
+
+
+
+
+@login_required
+def checkout_view(request):
+    # Lấy giỏ hàng của user
+    cart_items = CartItem.objects.filter(user=request.user)
+    cart_total = sum(item.get_total_price() for item in cart_items)
+
+    if request.method == 'POST':
+        full_name = request.POST.get('full_name')
+        address = request.POST.get('address')
+        phone_number = request.POST.get('phone_number')
+        shipping_method = request.POST.get('shipping_method')
+
+        # Tính phí vận chuyển dựa trên phương thức
+        shipping_fees = {
+            'normal': 5.00,
+            'fast': 10.00,
+            'express': 20.00
+        }
+        shipping_fee = shipping_fees.get(shipping_method, 5.00)  # Mặc định là normal nếu không hợp lệ
+
+        # Tạo đơn hàng
+        order = Order.objects.create(
+            user=request.user,
+            total_price=cart_total,
+            shipping_method=shipping_method,
+            shipping_fee=shipping_fee
+        )
+        # Lưu thông tin giao hàng (có thể tạo model riêng hoặc lưu trực tiếp vào Order)
+        order.full_name = full_name
+        order.address = address
+        order.phone_number = phone_number
+        order.save()
+
+        # Xóa giỏ hàng sau khi đặt hàng thành công
+        cart_items.delete()
+
+        return redirect('order_success')
+
+    context = {
+        'cart_items': cart_items,
+        'cart_total': cart_total,
+    }
+    return render(request, 'checkout.html', context)

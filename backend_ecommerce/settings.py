@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     "whitenoise.runserver_nostatic",
     'cloudinary',
     'products',
+    
     'rest_framework',
     'corsheaders',
     'drf_yasg',
