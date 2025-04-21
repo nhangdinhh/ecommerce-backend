@@ -1,0 +1,243 @@
+{% extends 'base.html' %}
+{% block title %}User Profile{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-3">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body text-center">
+                    <img src="https://via.placeholder.com/100" class="rounded-circle mb-3" alt="User Avatar">
+                    <h5 class="card-title">{{ user.username }}</h5>
+                    <p class="card-text text-muted">{{ user.email }}</p>
+                    <a href="{% url 'logout' %}" class="btn btn-outline-danger btn-sm">Logout</a>
+                </div>
+            </div>
+            <div class="list-group shadow-sm">
+                <a href="#profile-info" class="list-group-item list-group-item-action active">My Profile</a>
+                <a href="#order-history" class="list-group-item list-group-item-action">Order History</a>
+                <a href="#pending-orders" class="list-group-item list-group-item-action">Pending Orders</a>
+                <a href="#favorites" class="list-group-item list-group-item-action">Favorites</a>
+                <a href="{% url 'logout' %}" class="list-group-item list-group-item-action text-danger">Logout</a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="col-md-9">
+            <!-- Profile Info -->
+            <div id="profile-info" class="card shadow-sm mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">My Profile</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3 text-center">
+                            <img src="https://via.placeholder.com/150" class="rounded-circle mb-3" alt="User Avatar">
+                            <a href="#" class="btn btn-outline-primary btn-sm">Change Avatar</a>
+                        </div>
+                        <div class="col-md-9">
+                            <h6><strong>Username:</strong> {{ user.username }}</h6>
+                            <h6><strong>Email:</strong> {{ user.email }}</h6>
+                            <h6><strong>Full Name:</strong> {{ user.first_name }} {{ user.last_name }}</h6>
+                            <h6><strong>Joined:</strong> {{ user.date_joined|date:"F d, Y" }}</h6>
+                            <a href="#" class="btn btn-primary btn-sm mt-3">Edit Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pending Orders -->
+            <div id="pending-orders" class="card shadow-sm mb-4">
+                <div class="card-header bg-warning text-white">
+                    <h5 class="mb-0">Pending Orders</h5>
+                </div>
+                <div class="card-body">
+                    {% if pending_orders %}
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Order ID</th>
+                                        <th>Date</th>
+                                        <th>Total</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for order in pending_orders %}
+                                        <tr>
+                                            <td>#{{ order.id }}</td>
+                                            <td>{{ order.created_at|date:"F d, Y" }}</td>
+                                            <td>${{ order.total_price|floatformat:2 }}</td>
+                                            <td><span class="badge bg-warning text-dark">{{ order.status }}</span></td>
+                                            <td>
+                                                <a href="{% url 'products:order_list' %}#order-{{ order.id }}" class="btn btn-outline-primary btn-sm">View Details</a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    {% else %}
+                        <p class="text-muted">You have no pending orders.</p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Order History -->
+            <div id="order-history" class="card shadow-sm mb-4">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">Order History</h5>
+                </div>
+                <div class="card-body">
+                    {% if orders %}
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Order ID</th>
+                                        <th>Date</th>
+                                        <th>Total</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for order in orders %}
+                                        <tr>
+                                            <td>#{{ order.id }}</td>
+                                            <td>{{ order.created_at|date:"F d, Y" }}</td>
+                                            <td>${{ order.total_price|floatformat:2 }}</td>
+                                            <td>
+                                                {% if order.status == 'Pending' %}
+                                                    <span class="badge bg-warning text-dark">{{ order.status }}</span>
+                                                {% elif order.status == 'Completed' %}
+                                                    <span class="badge bg-success">{{ order.status }}</span>
+                                                {% else %}
+                                                    <span class="badge bg-danger">{{ order.status }}</span>
+                                                {% endif %}
+                                            </td>
+                                            <td>
+                                                <a href="{% url 'products:order_list' %}#order-{{ order.id }}" class="btn btn-outline-primary btn-sm">View Details</a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    {% else %}
+                        <p class="text-muted">You have no orders yet.</p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Favorite Products -->
+            <div id="favorites" class="card shadow-sm mb-4">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0">Favorite Products</h5>
+                </div>
+                <div class="card-body">
+                    {% if favorite_products %}
+                        <div class="row">
+                            {% for product in favorite_products %}
+                                <div class="col-md-4 mb-4">
+                                    <div class="card h-100">
+                                        <a href="{% url 'products:product_detail' product.slug %}">
+                                            {% if product.thumbnail and product.thumbnail.url %}
+                                                <img src="{{ product.thumbnail.url }}" class="card-img-top" alt="{{ product.name }}" style="height: 150px; object-fit: cover;">
+                                            {% else %}
+                                                <img src="https://via.placeholder.com/150" class="card-img-top" alt="Placeholder" style="height: 150px; object-fit: cover;">
+                                            {% endif %}
+                                        </a>
+                                        <div class="card-body">
+                                            <h6 class="card-title">{{ product.name }}</h6>
+                                            <p class="card-text">
+                                                <small class="text-muted">Category: {{ product.category.name }}</small><br>
+                                                {% if product.discount > 0 %}
+                                                    <span class="text-decoration-line-through text-muted">${{ product.price|floatformat:2 }}</span>
+                                                    <span class="text-danger">${{ product.price_after_discount|floatformat:2 }}</span>
+                                                {% else %}
+                                                    ${{ product.price|floatformat:2 }}
+                                                {% endif %}
+                                            </p>
+                                            <a href="{% url 'products:product_detail' product.slug %}" class="btn btn-outline-primary btn-sm w-100">View Details</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <p class="text-muted">You have no favorite products yet.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Tùy chỉnh giao diện trang profile */
+    .list-group-item {
+        border: none;
+        border-radius: 0;
+        transition: background-color 0.3s ease;
+    }
+
+    .list-group-item:hover {
+        background-color: #f1f5f9;
+    }
+
+    .list-group-item.active {
+        background-color: #3498db;
+        color: #ffffff;
+        border-color: #3498db;
+    }
+
+    .card-header {
+        font-weight: 500;
+    }
+
+    .table th, .table td {
+        vertical-align: middle;
+    }
+
+    .badge {
+        font-size: 0.9rem;
+        padding: 5px 10px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .list-group {
+            margin-bottom: 20px;
+        }
+
+        .card-img-top {
+            height: 120px !important;
+        }
+    }
+</style>
+
+<script>
+    // JavaScript để cuộn mượt đến các section khi nhấn vào menu sidebar
+    document.querySelectorAll('.list-group-item').forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+
+            if (targetSection) {
+                window.scrollTo({
+                    top: targetSection.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+
+                // Cập nhật trạng thái active
+                document.querySelectorAll('.list-group-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            }
+        });
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %}Search Results{% endblock %}
+{% block content %}
+<div class="container py-5">
+    {% if query %}
+        <h2>Search Results for "{{ query }}"</h2>
+        {% if products %}
+            <div class="row">
+                {% for product in products %}
+                    <div class="col-md-3 mb-4">
+                        <div class="card h-100">
+                            {% if product.thumbnail and product.thumbnail.url %}
+                                <img src="{{ product.thumbnail.url }}" class="card-img-top" alt="{{ product.name }}" style="height: 200px; object-fit: cover;">
+                            {% else %}
+                                <img src="https://via.placeholder.com/200" class="card-img-top" alt="Placeholder" style="height: 200px; object-fit: cover;">
+                            {% endif %}
+                            <div class="card-body">
+                                <h5 class="card-title">{{ product.name }}</h5>
+                                <p class="card-text">
+                                    <small class="text-muted">Category: {{ product.category.name }}</small><br>
+                                    ${{ product.price|floatformat:2 }}
+                                    {% if product.discount > 0 %}
+                                        <br>
+                                        <small class="text-success">Save {{ product.discount }}%</small>
+                                    {% endif %}
+                                </p>
+                                {% if user.is_authenticated %}
+                                    <form method="POST" action="{% url 'products:cart_view' %}">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="product_id" value="{{ product.id }}">
+                                        <input type="hidden" name="quantity" value="1">
+                                        <button type="submit" name="add_to_cart" class="btn btn-sm btn-primary w-100">Add to Cart</button>
+                                    </form>
+                                {% else %}
+                                    <a href="{% url 'login' %}" class="btn btn-sm btn-primary w-100">Add to Cart</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-muted">No products found for "{{ query }}".</p>
+        {% endif %}
+    {% else %}
+        <h2>Search Products</h2>
+        <p class="text-muted">Please enter a search term to find products.</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block title %}{{ category.name }} - Products{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <!-- Tiêu đề danh mục -->
+    <h1 class="mb-4">{{ category.name }}</h1>
+    <a href="{% url 'products:home' %}" class="btn btn-secondary mb-4">Back to Home</a>
+
+    <!-- Danh sách sản phẩm -->
+    {% if products %}
+        <div class="row">
+            {% for product in products %}
+                <div class="col-md-3 mb-4">
+                    <div class="card h-100">
+                        <a href="{% url 'products:product_detail' slug=product.slug %}">
+                            {% if product.image %}
+                                <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}" style="height: 200px; object-fit: cover;">
+                            {% elif product.thumbnail and product.thumbnail.url %}
+                                <img src="{{ product.thumbnail.url }}" class="card-img-top" alt="{{ product.name }}" style="height: 200px; object-fit: cover;">
+                            {% else %}
+                                <img src="https://via.placeholder.com/200" class="card-img-top" alt="Placeholder" style="height: 200px; object-fit: cover;">
+                            {% endif %}
+                        </a>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.name }}</h5>
+                            <p class="card-text">
+                                <small class="text-muted">Category: {{ product.category.name }}</small><br>
+                                {% if product.discount > 0 %}
+                                    <span class="text-decoration-line-through text-muted">${{ product.price|floatformat:2 }}</span>
+                                    <span class="text-danger">${{ product.get_discounted_price|floatformat:2 }}</span>
+                                    <br>
+                                    <small class="text-success">Save {{ product.discount }}%</small>
+                                {% else %}
+                                    ${{ product.price|floatformat:2 }}
+                                {% endif %}
+                            </p>
+                            {% if user.is_authenticated %}
+                                <form method="POST" action="{% url 'products:cart_view' %}">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="product_id" value="{{ product.id }}">
+                                    <input type="hidden" name="quantity" value="1">
+                                    <button type="submit" name="add_to_cart" class="btn btn-sm btn-primary w-100">Add to Cart</button>
+                                </form>
+                            {% else %}
+                                <a href="{% url 'login' %}" class="btn btn-sm btn-primary w-100">Add to Cart</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="text-muted">No products available in this category.</p>
+    {% endif %}
+</div>
+{% endblock %}

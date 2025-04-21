@@ -1,23 +1,54 @@
-<!-- templates/order_list.html -->
 {% extends 'base.html' %}
 {% block title %}Orders{% endblock %}
+{% block styles %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'static/css/order.css' %}">
+{% endblock %}
 {% block content %}
-<h2>Your Orders</h2>
-{% if orders %}
-    <ul class="list-group">
-        {% for order in orders %}
-            <li class="list-group-item">
-                <strong>Order #{{ order.id }} - Status: {{ order.status }}</strong>
-                <ul class="list-group mt-2">
-                    {% for item in order.items.all %}
-                        <li class="list-group-item">{{ item.product.name }} - Quantity: {{ item.quantity }} - Price: ${{ item.price }}</li>
-                    {% endfor %}
-                </ul>
-            </li>
+<div class="container mt-4">
+    <h2 class="mb-4">Your Orders</h2>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
         {% endfor %}
-    </ul>
-{% else %}
-    <p>You have no orders.</p>
-{% endif %}
-<a href="{% url 'product_list' %}" class="btn btn-secondary mt-3">Continue Shopping</a>
+    {% endif %}
+    {% if orders %}
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Date</th>
+                        <th>Total</th>
+                        <th>Shipping Info</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                        <tr>
+                            <td>{{ order.id }}</td>
+                            <td>{{ order.created_at|date:"Y-m-d H:i" }}</td>
+                            <td>${{ order.total_price }}</td>
+                            <td>
+                                {% if order.full_name %}
+                                    <strong>Name:</strong> {{ order.full_name }}<br>
+                                    <strong>Address:</strong> {{ order.address }}<br>
+                                    <strong>Phone:</strong> {{ order.phone_number }}
+                                {% else %}
+                                    Not provided
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <p class="text-muted">You have no orders.</p>
+        <a href="{% url 'home' %}" class="btn btn-primary">Continue Shopping</a>
+    {% endif %}
+</div>
 {% endblock %}

@@ -13,6 +13,7 @@ print("CLOUDINARY_STORAGE:", {
     'CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME'),
     'API_KEY': os.getenv('CLOUDINARY_API_KEY'),
     'API_SECRET': os.getenv('CLOUDINARY_API_SECRET'),
+    'SECURE': True,
 })
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'
@@ -30,7 +31,12 @@ load_dotenv()
 
 # ALLOWED_HOSTS từ biến môi trường, mặc định là ['localhost', '127.0.0.1']
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+# backend_ecommerce/settings.py
+# ... (các cài đặt khác)
 
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'  # Chuyển hướng về trang Home sau khi đăng xuất
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -47,6 +53,8 @@ INSTALLED_APPS = [
     'drf_yasg',
     'rest_framework.authtoken',
     'django_filters',
+    'users',
+    'upload',
 ]
 
 MIDDLEWARE = [
@@ -97,10 +105,14 @@ CORS_ALLOWED_ORIGINS = [
 
 ROOT_URLCONF = 'backend_ecommerce.urls'
 
+# backend_ecommerce/settings.py
+# backend_ecommerce/settings.py
+
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [BASE_DIR / 'templates'],  # Đảm bảo Django tìm template trong thư mục templates
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -139,7 +151,9 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+# backend_ecommerce/settings.py
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 # Internationalization
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'

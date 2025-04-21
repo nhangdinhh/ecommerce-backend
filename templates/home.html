@@ -2,11 +2,207 @@
 {% extends 'base.html' %}
 {% block title %}Home{% endblock %}
 {% block content %}
-<div class="hero-section text-center text-white">
-    <div class="hero-content">
-        <h1>Welcome to Ecommerce Site</h1>
-        <p>Browse our categories and products!</p>
-        <a href="{% url 'product_list' %}" class="btn btn-primary btn-lg">Shop Now</a>
+    <!-- Banner Welcome -->
+    <div class="banner-welcome text-center py-5 bg-primary text-white">
+        <h1>Welcome to Our Ecommerce Site!</h1>
+        <p>Discover amazing products at unbeatable prices.</p>
+        <a href="{% url 'product_list' %}" class="btn btn-light">Shop Now</a>
     </div>
-</div>
+
+    <!-- Categories Section -->
+    <div class="categories py-5">
+        <div class="container">
+            <h2 class="section-title mb-4">Categories</h2>
+            <div class="row">
+                {% for category in categories %}
+                    <div class="col-md-3 mb-4">
+                        <a href="{% url 'category_products' category.slug %}" class="text-decoration-none">
+                            <div class="category-card h-100">
+                                <div class="card-body text-center">
+                                    <h5 class="category-title">{{ category.name }}</h5>
+                                    <p class="category-text">Explore {{ category.name }} products</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+    <!-- Flash Sale -->
+    <div class="flash-sale py-5">
+        <div class="container">
+            <h2 class="section-title mb-4">Flash Sale</h2>
+            <!-- Bộ đếm ngược -->
+            <div class="countdown mb-4 text-center" id="countdown">
+                <span class="countdown-label">Time Remaining: </span>
+                <span class="countdown-time" id="countdown-time"></span>
+            </div>
+            {% if flash_sale_products %}
+                <div class="row">
+                    {% for product in flash_sale_products %}
+                        <div class="col-md-3 mb-4">
+                            <div class="flash-sale-card h-100">
+                                {% if product.thumbnail %}
+                                    <img src="{{ product.thumbnail.url }}" class="card-img-top" alt="{{ product.name }}" style="height: 200px; object-fit: cover;">
+                                {% else %}
+                                    <img src="https://via.placeholder.com/200" class="card-img-top" alt="Placeholder" style="height: 200px; object-fit: cover;">
+                                {% endif %}
+                                <div class="card-body">
+                                    <h5 class="flash-sale-title">{{ product.name }}</h5>
+                                    <p class="flash-sale-price">
+                                        <span class="original-price text-decoration-line-through text-muted">${{ product.price|floatformat:2 }}</span>
+                                        <span class="discounted-price text-danger">${{ product.discounted_price|floatformat:2 }}</span>
+                                        <br>
+                                        <small class="discount-text text-success">Save {{ product.discount }}%</small>
+                                    </p>
+                                    <form method="POST" action="{% url 'cart_view' %}">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="product_id" value="{{ product.id }}">
+                                        <button type="submit" name="add_to_cart" class="btn btn-sm btn-primary w-100 flash-sale-btn">Add to Cart</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p class="text-muted">No Flash Sale products available at the moment.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Our Products -->
+    <div class="products py-5">
+        <div class="container">
+            <h2 class="section-title mb-4">Our Products</h2>
+            {% if products %}
+                <div class="row">
+                    {% for product in products %}
+                        <div class="col-md-3 mb-4">
+                            <div class="card h-100">
+                                {% if product.thumbnail %}
+                                    <img src="{{ product.thumbnail.url }}" class="card-img-top" alt="{{ product.name }}" style="height: 200px; object-fit: cover;">
+                                {% else %}
+                                    <img src="https://via.placeholder.com/200" class="card-img-top" alt="Placeholder" style="height: 200px; object-fit: cover;">
+                                {% endif %}
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ product.name }}</h5>
+                                    <p class="card-text">
+                                        <small class="text-muted">Category: {{ product.category.name }}</small><br>
+                                        ${{ product.price|floatformat:2 }}
+                                        {% if product.discount > 0 %}
+                                            <br>
+                                            <small class="text-success">Save {{ product.discount }}%</small>
+                                        {% endif %}
+                                    </p>
+                                    {% if user.is_authenticated %}
+                                        <form method="POST" action="{% url 'cart_view' %}">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="product_id" value="{{ product.id }}">
+                                            <button type="submit" name="add_to_cart" class="btn btn-sm btn-primary w-100">Add to Cart</button>
+                                        </form>
+                                    {% else %}
+                                        <a href="{% url 'login' %}" class="btn btn-sm btn-primary w-100">Add to Cart</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p class="text-muted">No products available.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- News Section -->
+    <div class="news py-5">
+        <div class="container">
+            <h2 class="section-title mb-4">Latest News</h2>
+            {% if news_items %}
+                <div class="row">
+                    <!-- Large Box on the Left -->
+                    <div class="col-md-6 mb-4">
+                        <a href="{{ news_items.0.link }}" class="text-decoration-none">
+                            <div class="news-card-large h-100">
+                                <div class="card-body">
+                                    <h3 class="news-title-large">{{ news_items.0.title }}</h3>
+                                    <p class="news-summary-large">{{ news_items.0.summary }}</p>
+                                    <span class="btn btn-primary btn-sm">Read More</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- 6 Small Boxes on the Right -->
+                    <div class="col-md-6 mb-4">
+                        <div class="row">
+                            {% for news in news_items|slice:"1:7" %}
+                                <div class="col-12 mb-3">
+                                    <a href="{{ news.link }}" class="text-decoration-none">
+                                        <div class="news-card-small">
+                                            <div class="card-body">
+                                                <h5 class="news-title-small">{{ news.title }}</h5>
+                                                <p class="news-summary-small">{{ news.summary }}</p>
+                                                <span class="btn btn-primary btn-sm">Read More</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <p class="text-muted">No news available at the moment.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- JavaScript cho bộ đếm ngược -->
+    <script>
+        function startCountdown() {
+            // Lấy thời gian hiện tại
+            const now = new Date();
+            const currentHours = now.getHours();
+            const currentMinutes = now.getMinutes();
+            const currentSeconds = now.getSeconds();
+
+            // Tính thời gian đã trôi qua trong ngày (tính bằng mili giây)
+            const elapsedToday = (currentHours * 3600 + currentMinutes * 60 + currentSeconds) * 1000;
+
+            // Thời gian còn lại trong 24 giờ (tính bằng mili giây)
+            const oneDay = 24 * 60 * 60 * 1000; // 24 giờ
+            const timeLeft = oneDay - elapsedToday;
+
+            // Thời gian kết thúc: hiện tại + thời gian còn lại
+            const endTime = now.getTime() + timeLeft;
+
+            const countdownElement = document.getElementById('countdown-time');
+
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const timeRemaining = endTime - now;
+
+                if (timeRemaining <= 0) {
+                    countdownElement.textContent = "Flash Sale Ended!";
+                    return;
+                }
+
+                const hours = Math.floor(timeRemaining / (1000 * 60 * 60));
+                const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+                countdownElement.textContent = `${hours}h ${minutes}m ${seconds}s`;
+            }
+
+            // Cập nhật mỗi giây
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        }
+
+        // Khởi động bộ đếm khi trang được tải
+        document.addEventListener('DOMContentLoaded', startCountdown);
+    </script>
 {% endblock %}

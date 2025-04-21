@@ -1,0 +1,233 @@
+{% extends 'base.html' %}
+{% block title %}{{ product.name }} - Product Detail{% endblock %}
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <!-- Product Images -->
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <!-- Main Image -->
+                    <div class="main-image mb-3">
+                        {% if product.image %}
+                            <img src="{{ product.image.url }}" class="img-fluid rounded" alt="{{ product.name }}" style="max-height: 400px; object-fit: cover; width: 100%;">
+                        {% elif product.thumbnail and product.thumbnail.url %}
+                            <img src="{{ product.thumbnail.url }}" class="img-fluid rounded" alt="{{ product.name }}" style="max-height: 400px; object-fit: cover; width: 100%;">
+                        {% else %}
+                            <img src="https://via.placeholder.com/400" class="img-fluid rounded" alt="Placeholder" style="max-height: 400px; object-fit: cover; width: 100%;">
+                        {% endif %}
+                    </div>
+                    <!-- Thumbnail Images -->
+                    <div class="d-flex flex-wrap gap-2">
+                        {% if product.images.all %}
+                            {% for image in product.images.all %}
+                                {% if image.image %}
+                                    <img src="{{ image.image.url }}" class="img-thumbnail" alt="Thumbnail" style="width: 80px; height: 80px; object-fit: cover; cursor: pointer;" onclick="changeMainImage(this.src)">
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Details -->
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title">{{ product.name }}</h2>
+                    <p class="text-muted">Category: {{ product.category.name }}</p>
+                    <hr>
+                    <div class="mb-3">
+                        {% if product.discount > 0 %}
+                            <span class="text-decoration-line-through text-muted fs-5">${{ product.price|floatformat:2 }}</span>
+                            <span class="text-danger fs-4 ms-2">${{ product.get_discounted_price|floatformat:2 }}</span>
+                            <br>
+                            <small class="text-success">Save {{ product.discount }}%</small>
+                        {% else %}
+                            <span class="fs-4">${{ product.price|floatformat:2 }}</span>
+                        {% endif %}
+                    </div>
+                    <p class="text-muted">Stock: {{ product.amount }} {{ product.unit|default:"items" }}</p>
+                    {% if product.is_flash_sale %}
+                        <p class="text-danger">
+                            Flash Sale ends in: 
+                            <span class="countdown fw-bold" data-end-time="{{ product.flash_sale_end|default:'2025-04-21T10:00:00.142860+00:00' }}"></span>
+                        </p>
+                    {% endif %}
+                    <hr>
+                    <form method="POST" action="{% url 'products:cart_view' %}" class="mb-3">
+                        {% csrf_token %}
+                        <input type="hidden" name="product_id" value="{{ product.id }}">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Quantity</span>
+                            <input type="number" name="quantity" value="1" min="1" max="{{ product.amount }}" class="form-control" style="max-width: 100px;">
+                        </div>
+                        {% if user.is_authenticated %}
+                            <button type="submit" name="add_to_cart" class="btn btn-primary w-100">Add to Cart</button>
+                        {% else %}
+                            <a href="{% url 'login' %}" class="btn btn-primary w-100">Add to Cart</a>
+                        {% endif %}
+                    </form>
+                    <a href="{% url 'products:cart_view' %}" class="btn btn-outline-secondary w-100">View Cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Description -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="card shadow-sm">
+                <div class="card-header bg-secondary text-white">
+                    <h5 class="mb-0">Product Description</h5>
+                </div>
+                <div class="card-body">
+                    {% if product.description %}
+                        <p>{{ product.description }}</p>
+                    {% else %}
+                        <p class="text-muted">No description available for this product.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Comments -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="card shadow-sm">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0">Customer Reviews</h5>
+                </div>
+                <div class="card-body">
+                    {% if product.product_comments.all %}
+                        {% for comment in product.product_comments.all %}
+                            <div class="border-bottom pb-3 mb-3">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <strong>{{ comment.user.username }}</strong>
+                                        <div class="text-warning">
+                                            {% for i in "12345" %}
+                                                {% if forloop.counter <= comment.rating %}
+                                                    <i class="fas fa-star"></i>
+                                                {% else %}
+                                                    <i class="far fa-star"></i>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                    <small class="text-muted">{{ comment.created_at|date:"F d, Y" }}</small>
+                                </div>
+                                <p class="mt-2">{{ comment.comment }}</p>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p class="text-muted">No reviews yet. Be the first to review this product!</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Comment Form -->
+    {% if user.is_authenticated %}
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Write a Review</h5>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST" action="{% url 'products:product_detail' product.slug %}">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="rating" class="form-label">Rating</label>
+                                <select name="rating" id="rating" class="form-select" required>
+                                    <option value="1">1 Star</option>
+                                    <option value="2">2 Stars</option>
+                                    <option value="3">3 Stars</option>
+                                    <option value="4">4 Stars</option>
+                                    <option value="5">5 Stars</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="comment" class="form-label">Your Review</label>
+                                <textarea name="comment" id="comment" class="form-control" rows="3" required></textarea>
+                            </div>
+                            <button type="submit" name="add_comment" class="btn btn-primary">Submit Review</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+</div>
+
+<style>
+    /* Tùy chỉnh giao diện */
+    .main-image img {
+        transition: all 0.3s ease;
+    }
+
+    .img-thumbnail {
+        transition: all 0.3s ease;
+    }
+
+    .img-thumbnail:hover {
+        transform: scale(1.1);
+        border-color: #3498db;
+    }
+
+    .countdown {
+        background-color: rgba(255, 77, 77, 0.1);
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+</style>
+
+<script>
+    // Đổi ảnh chính khi nhấn vào thumbnail
+    function changeMainImage(src) {
+        document.querySelector('.main-image img').src = src;
+    }
+
+    // Đồng hồ đếm ngược cho Flash Sale
+    document.addEventListener('DOMContentLoaded', function() {
+        const countdownElements = document.querySelectorAll('.countdown');
+        
+        countdownElements.forEach(function(element) {
+            const endTimeStr = element.getAttribute('data-end-time');
+            if (!endTimeStr) {
+                element.textContent = "Flash Sale Ended";
+                return;
+            }
+
+            const endTime = new Date(endTimeStr).getTime();
+            if (isNaN(endTime)) {
+                element.textContent = "Invalid End Time";
+                return;
+            }
+
+            const updateCountdown = () => {
+                const now = new Date().getTime();
+                const timeLeft = endTime - now;
+
+                if (timeLeft <= 0) {
+                    element.textContent = "Flash Sale Ended";
+                    return;
+                }
+
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                element.textContent = `${hours}h ${minutes}m ${seconds}s`;
+                setTimeout(updateCountdown, 1000);
+            };
+
+            updateCountdown();
+        });
+    });
+</script>
+{% endblock %}

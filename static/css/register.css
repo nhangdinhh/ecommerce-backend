@@ -1,0 +1,96 @@
+/* Register Page Styling */
+.container.mt-4 {
+    max-width: 500px; /* Giới hạn chiều rộng để form gọn gàng */
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+h2.mb-4 {
+    font-size: 2rem;
+    color: #343a40;
+    text-align: center;
+    border-bottom: 2px solid #007bff; /* Thay màu xanh lá thành xanh dương */
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.alert {
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+.alert .btn-close {
+    padding: 10px;
+}
+
+.form-label {
+    font-weight: bold;
+    color: #343a40;
+}
+
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #007bff; /* Thay màu xanh lá thành xanh dương khi focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+    outline: none;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.1rem;
+    background-color: #007bff; /* Thay màu xanh lá thành xanh dương cho nút Register */
+    border: none;
+    border-radius: 5px;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Màu xanh dương đậm hơn khi hover */
+    transform: scale(1.02);
+}
+
+.mt-3 {
+    text-align: center;
+    font-size: 0.95rem;
+    color: #6c757d;
+}
+
+.mt-3 a {
+    color: #007bff; /* Thay màu xanh lá thành xanh dương cho liên kết */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.mt-3 a:hover {
+    text-decoration: underline;
+    color: #0056b3; /* Màu xanh dương đậm hơn khi hover */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 576px) {
+    .container.mt-4 {
+        padding: 20px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    h2.mb-4 {
+        font-size: 1.5rem;
+    }
+
+    .btn-primary {
+        font-size: 1rem;
+        padding: 8px;
+    }
+}

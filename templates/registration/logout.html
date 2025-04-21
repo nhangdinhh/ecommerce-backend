@@ -1,10 +1,10 @@
-<!-- templates/registration/logout.html -->
+<!-- templates/registration/logged_out.html -->
 {% extends 'base.html' %}
-{% block title %}Logout{% endblock %}
+{% block title %}Logged Out{% endblock %}
 {% block content %}
-<div class="container mt-4">
-    <h2 class="mb-4">Logout</h2>
-    <p>You have been logged out.</p>
-    <a href="{% url 'home' %}" class="btn btn-primary">Return to Home</a>
+<div class="container mt-4 text-center">
+    <h2>Logged Out</h2>
+    <p>You have been successfully logged out.</p>
+    <p><a href="{% url 'login' %}">Log in again</a> or <a href="{% url 'home' %}">Return to Home</a>.</p>
 </div>
 {% endblock %}

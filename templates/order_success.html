@@ -1,0 +1,11 @@
+<!-- templates/order_success.html -->
+{% extends 'base.html' %}
+{% block title %}Order Successful{% endblock %}
+{% block content %}
+<div class="container mt-4 text-center">
+    <h2 class="mb-4">Order Placed Successfully!</h2>
+    <p>Thank you for your purchase! Your order has been successfully placed.</p>
+    <p>You can view your order details in the <a href="{% url 'order_list' %}">Orders</a> section.</p>
+    <a href="{% url 'home' %}" class="btn btn-primary">Continue Shopping</a>
+</div>
+{% endblock %}
