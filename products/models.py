@@ -10,7 +10,7 @@ class Category(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     deleted_at = models.DateTimeField(null=True, blank=True)
-    parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='subcategories')  # Thêm trường parent
+    parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='subcategories')
 
     def __str__(self):
         return self.name
@@ -32,6 +32,7 @@ class Product(models.Model):
     flash_sale_end = models.DateTimeField(blank=True, null=True)
     description = models.TextField(blank=True, null=True)
     image = CloudinaryField('image', blank=True, null=True)
+
     def __str__(self):
         return self.name
 
@@ -94,6 +95,8 @@ class Order(models.Model):
     full_name = models.CharField(max_length=200, blank=True, null=True)
     address = models.TextField(blank=True, null=True)
     phone_number = models.CharField(max_length=20, blank=True, null=True)
+    shipping_method = models.CharField(max_length=20, default='normal')  # normal, fast, express
+    shipping_fee = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
 
     def __str__(self):
         return f"Order {self.id} by {self.user.username}"
@@ -117,6 +120,7 @@ class FavoriteProduct(models.Model):
 
     def __str__(self):
         return f"{self.user.username} - {self.product.name}"
+
 class News(models.Model):
     title = models.CharField(max_length=255)
     link = models.URLField(max_length=255)  # Có thể thay bằng slug nếu bạn dùng slug
@@ -129,4 +133,10 @@ class News(models.Model):
 
     def __str__(self):
         return self.title
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    address = models.CharField(max_length=255, blank=True, null=True)
+    phone_number = models.CharField(max_length=20, blank=True, null=True)
 
+    def __str__(self):
+        return f"{self.user.username}'s Profile"

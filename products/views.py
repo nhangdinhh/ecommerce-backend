@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from rest_framework.pagination import PageNumberPagination
 from rest_framework import status, viewsets
 from rest_framework.permissions import IsAuthenticated
-from .models import Category, Product, ProductImage, ProductComment, Cart, CartItem, Order, OrderItem, News
+from .models import Category, Product, ProductImage, ProductComment, Cart, CartItem, Order, OrderItem, News, Profile, FavoriteProduct
 from .serializers import CategorySerializer, ProductSerializer, ProductImageSerializer, ProductCommentSerializer, CartSerializer, CartItemSerializer, OrderSerializer, OrderItemSerializer
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render, redirect
@@ -46,30 +46,32 @@ def home(request):
 # View trang profile
 @login_required
 def profile_view(request):
-    # Lấy thông tin người dùng
     user = request.user
+    pending_orders = Order.objects.filter(user=user, status='Pending')
+    orders = Order.objects.filter(user=user)
+    favorite_products = FavoriteProduct.objects.filter(user=user)
 
-    # Lấy lịch sử đơn hàng
-    orders = Order.objects.filter(user=user).order_by('-created_at')
+    if not hasattr(user, 'profile'):
+        Profile.objects.create(user=user)
 
-    # Lấy các đơn hàng đang chờ xử lý (giả sử trạng thái "Pending")
-    pending_orders = orders.filter(status='Pending')
+    if request.method == 'POST':
+        user.username = request.POST.get('username')
+        user.email = request.POST.get('email')
+        user.save()
 
-    # Giả sử có model FavoriteProduct để lưu sản phẩm yêu thích
-    # Nếu chưa có, bạn có thể bỏ qua hoặc thêm model này
-    try:
-        favorite_products = Product.objects.filter(favoriteproduct__user=user)
-    except:
-        favorite_products = Product.objects.none()
+        user.profile.address = request.POST.get('address')
+        user.profile.phone_number = request.POST.get('phone_number')
+        user.profile.save()
+
+        return redirect('profile')
 
     context = {
         'user': user,
-        'orders': orders,
         'pending_orders': pending_orders,
+        'orders': orders,
         'favorite_products': favorite_products,
     }
     return render(request, 'profile.html', context)
-
 # View trang chủ (class-based view)
 class HomeView(TemplateView):
     template_name = 'home.html'
